@@ -1,1 +1,0 @@
-<h1>Resultados</h1>

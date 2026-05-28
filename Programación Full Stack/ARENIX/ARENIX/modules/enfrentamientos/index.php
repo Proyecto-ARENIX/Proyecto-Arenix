@@ -1,1 +1,0 @@
-<h1>Enfrentamientos</h1>
