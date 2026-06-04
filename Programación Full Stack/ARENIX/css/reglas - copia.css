@@ -1,0 +1,131 @@
+/* =========================
+   RESPONSIVE TABLET
+========================= */
+@media (max-width: 1024px){
+
+    .navbar{
+        flex-direction: column;
+        height: auto;
+        padding: 20px;
+        gap: 20px;
+    }
+
+    .menu{
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .menu a{
+        width: 100px;
+        height: 70px;
+    }
+
+    .logo img{
+        width: 150px;
+    }
+
+    .logo h1{
+        font-size: 30px;
+    }
+
+    .footer{
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+
+    .footer_social{
+        justify-content: center;
+    }
+
+    .footer_links{
+        flex-wrap: wrap;
+    }
+}
+
+
+/* =========================
+   RESPONSIVE CELULAR
+========================= */
+@media (max-width: 768px){
+
+    .navbar{
+        padding: 15px;
+    }
+
+    .logo{
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .logo img{
+        width: 120px;
+    }
+
+    .logo h1{
+        font-size: 26px;
+    }
+
+    .menu{
+        width: 100%;
+        gap: 10px;
+    }
+
+    .menu a{
+        width: 45%;
+        height: 65px;
+        font-size: 12px;
+    }
+
+    .login{
+        width: 100%;
+        text-align: center;
+    }
+
+    .hero-text h1{
+        font-size: 35px;
+        text-align: center;
+    }
+
+    .hero-text p{
+        text-align: center;
+        font-size: 16px;
+    }
+
+    .footer_links{
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .footer_social{
+        gap: 10px;
+    }
+
+    .footer_social img{
+        width: 20px;
+        height: 20px;
+    }
+}
+
+
+/* =========================
+   CELULARES MUY CHICOS
+========================= */
+@media (max-width: 480px){
+
+    .menu a{
+        width: 100%;
+    }
+
+    .hero-text h1{
+        font-size: 28px;
+    }
+
+    .hero-text p{
+        font-size: 14px;
+    }
+
+    .footer_logo{
+        width: 120px;
+    }
+}
