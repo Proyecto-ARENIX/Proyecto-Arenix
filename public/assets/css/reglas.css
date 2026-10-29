@@ -1,0 +1,133 @@
+
+/* boton hamburguesa */
+
+/* el checkbox queda invisible pero sigue siendo funcional (accesible con teclado) */
+.menu-boton{
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.hamburguesa{
+    display: none; /* oculto en escritorio, solo aparece en mobile */
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+
+    width: 38px;
+    height: 38px;
+
+    cursor: pointer;
+}
+
+/* las 3 lineas del boton */
+.hamburguesa span{
+    display: block;
+    width: 100%;
+    height: 3px;
+    background: white;
+    border-radius: 3px;
+    transition: 0.3s;
+}
+
+/* cuando el checkbox esta marcado (menu abierto), las lineas forman una X */
+.menu-boton:checked ~ .hamburguesa span:nth-child(1){
+    transform: translateY(9px) rotate(45deg);
+}
+.menu-boton:checked ~ .hamburguesa span:nth-child(2){
+    opacity: 0;
+}
+.menu-boton:checked ~ .hamburguesa span:nth-child(3){
+    transform: translateY(-9px) rotate(-45deg);
+}
+
+/* celulares y tablets */
+@media (max-width: 768px){
+
+    .barra_navegacion{
+        flex-wrap: wrap;
+        padding: 15px 20px;
+    }
+
+    .logo img{
+        width: 50px;
+    }
+
+    .logo h1{
+        font-size: 22px;
+    }
+
+    .logo-texto p{
+        display: none; /* se oculta la bajada para no saturar el nav en mobile */
+    }
+
+    .hamburguesa{
+        display: flex; /* aca aparece el boton */
+    }
+
+    /* el menu y el login arrancan ocultos en mobile */
+    .menu,
+    .boton-ingresar{
+        display: none;
+        width: 100%;
+    }
+
+    /* cuando el checkbox esta marcado, se muestran como dropdown */
+    .menu-boton:checked ~ .menu,
+    .menu-boton:checked ~ .boton-ingresar{
+        display: flex;
+    }
+
+    .menu{
+        flex-direction: column;
+        gap: 5px;
+        margin-top: 15px;
+    }
+
+    .menu a{
+        width: 100%;
+        height: auto;
+
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: 12px;
+
+        padding: 14px 12px;
+        border-radius: 8px;
+    }
+
+    .menu a i{
+        margin-bottom: 0;
+        width: 22px;
+        text-align: center;
+    }
+
+    /* en el celular no hay mouse: el submenu queda siempre abierto, abajo de su boton */
+    .menu-desplegable{
+        width: 100%;
+    }
+
+    .submenu{
+        display: block;
+        position: static;
+        min-width: 0;
+        padding: 0 0 0 48px;
+        transform: none;
+    }
+
+    .menu .submenu a{
+        border: 0;
+        background: transparent;
+        box-shadow: none;
+        text-align: left;
+    }
+
+    .boton-ingresar{
+        justify-content: center;
+        text-align: center;
+        margin-top: 12px;
+    }
+
+}
+

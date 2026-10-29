@@ -1,0 +1,1380 @@
+/* enfrentamientos */
+
+.contenedor{
+    width: 100%;
+    max-width: 1150px;
+    margin: 0 auto;
+    padding: 40px 20px 60px;
+}
+
+/* marca la pagina activa en el nav */
+.menu a.activo{
+    background: #07152f;
+    box-shadow: inset 0 -2px 0 #1d8fff;
+}
+
+
+/* equipos del torneo */
+
+.seccion_cabecera{
+    margin-bottom: 18px;
+}
+
+.seccion_cabecera h2{
+    color: white;
+    font-size: 22px;
+}
+
+.seccion_cabecera p{
+    color: #6f7a8c;
+    font-size: 13px;
+    margin-top: 4px;
+}
+
+.solo-lector{
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+}
+
+/* barra de busqueda */
+.buscador{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 16px;
+}
+
+.buscador input{
+    flex: 1;
+    min-width: 0;
+
+    background: #050b18;
+    border: 1px solid #1b2c47;
+    border-radius: 10px;
+
+    color: white;
+    font-size: 14px;
+    padding: 13px 16px;
+}
+
+.buscador input::placeholder{
+    color: #4c586b;
+}
+
+/* boton para filtrar por deporte */
+.filtro_deporte{
+    background: #07152f;
+    border: 1px solid #1b2c47;
+    border-radius: 10px;
+
+    color: white;
+    font-size: 14px;
+    padding: 13px 16px;
+    cursor: pointer;
+}
+
+.filtro_deporte:hover,
+.filtro_deporte:focus{
+    outline: none;
+    border-color: #1d8fff;
+}
+
+.buscador input:focus{
+    outline: none;
+    border-color: #1d8fff;
+}
+
+.buscador_contador{
+    color: #6f7a8c;
+    font-size: 13px;
+    white-space: nowrap;
+}
+
+/* lista de equipos, uno debajo del otro */
+.lista_equipos{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.fila_equipo[hidden]{
+    display: none;
+}
+
+.fila_equipo_boton{
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    gap: 18px;
+
+    background: #050b18;
+    border: 1px solid #111827;
+    border-radius: 12px;
+
+    padding: 12px 18px;
+    cursor: pointer;
+    text-align: left;
+    color: #dfe1e6;
+    font: inherit;
+
+    transition: border-color 0.15s, background 0.15s;
+}
+
+.fila_equipo_boton:hover,
+.fila_equipo_boton:focus-visible{
+    background: #07152f;
+    border-color: #1d8fff;
+    outline: none;
+}
+
+.fila_equipo_logo{
+    width: 54px;
+    height: 54px;
+    object-fit: contain;
+    flex-shrink: 0;
+    transition: transform 0.2s;
+}
+
+/* el escudo "salta" al pasar el mouse */
+.fila_equipo_boton:hover .fila_equipo_logo,
+.fila_equipo_boton:focus-visible .fila_equipo_logo{
+    transform: scale(1.15) translateY(-3px);
+}
+
+.fila_equipo_info{
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.fila_equipo_info strong{
+    color: white;
+    font-size: 16px;
+}
+
+.fila_equipo_info small{
+    color: #6f7a8c;
+    font-size: 12px;
+}
+
+.fila_equipo_dato{
+    color: #8b95a7;
+    font-size: 13px;
+    white-space: nowrap;
+}
+
+.fila_equipo_ver{
+    color: #1d8fff;
+    font-size: 13px;
+    white-space: nowrap;
+}
+
+.plan{
+    padding: 5px 11px;
+    border-radius: 20px;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.plan_pro{
+    color: #1d8fff;
+    background: rgba(29,143,255,0.10);
+    border: 1px solid rgba(29,143,255,0.30);
+}
+
+.plan_basico{
+    color: #8b95a7;
+    background: rgba(139,149,167,0.08);
+    border: 1px solid rgba(139,149,167,0.25);
+}
+
+.sin_resultados{
+    color: #6f7a8c;
+    font-size: 14px;
+    text-align: center;
+    padding: 30px 0;
+}
+
+
+/* aGREGAR CLUB (organizadores y administradores) */
+
+.seccion_cabecera_acciones{
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.boton_agregar{
+    background: #1d8fff;
+    border: 1px solid #1d8fff;
+    border-radius: 10px;
+
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 11px 18px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.boton_agregar:hover,
+.boton_agregar:focus-visible{
+    background: #3a9dff;
+    outline: none;
+}
+
+.boton_secundario{
+    background: transparent;
+    border: 1px solid #1b2c47;
+    border-radius: 10px;
+
+    color: #bfc7d5;
+    font-size: 14px;
+    padding: 11px 18px;
+    cursor: pointer;
+}
+
+.boton_secundario:hover{
+    border-color: #1d8fff;
+}
+
+/* boton "Editar club" en la ventana del equipo */
+.boton_editar{
+    align-self: flex-start;
+    padding: 8px 14px;
+    font-size: 13px;
+    white-space: nowrap;
+}
+
+.aviso_club{
+    border-radius: 10px;
+    font-size: 14px;
+    padding: 12px 16px;
+    margin-bottom: 16px;
+}
+
+.aviso_exito{
+    color: #7ee08a;
+    background: rgba(126,224,138,0.08);
+    border: 1px solid rgba(126,224,138,0.25);
+}
+
+.aviso_error{
+    color: #ff7a7a;
+    background: rgba(255,90,90,0.08);
+    border: 1px solid rgba(255,90,90,0.30);
+}
+
+.modal_form{
+    width: min(940px, calc(100% - 32px));
+}
+
+.form_club{
+    padding: 22px 26px 26px;
+}
+
+.form_grilla{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px 18px;
+    margin-bottom: 18px;
+}
+
+.campo{
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 0;
+}
+
+.campo label,
+.form_habilidades legend{
+    color: #bfc7d5;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.campo label small,
+.form_habilidades legend small{
+    color: #6f7a8c;
+    font-weight: normal;
+}
+
+.campo input,
+.campo select,
+.campo textarea{
+    background: #07152f;
+    border: 1px solid #1b2c47;
+    border-radius: 8px;
+
+    color: white;
+    font-size: 14px;
+    padding: 10px 12px;
+}
+
+.campo textarea{
+    resize: vertical;
+    line-height: 1.5;
+}
+
+.campo input[type="file"]{
+    padding: 7px 10px;
+}
+
+.campo input:focus,
+.campo select:focus,
+.campo textarea:focus{
+    outline: none;
+    border-color: #1d8fff;
+}
+
+.campo select:disabled{
+    opacity: 0.7;
+}
+
+.campo_ayuda{
+    color: #6f7a8c;
+    font-size: 12px;
+}
+
+.campo_ayuda_ok{
+    color: #7ee08a;
+}
+
+.form_habilidades{
+    border: 1px solid #1b2c47;
+    border-radius: 10px;
+    padding: 14px 16px 16px;
+    margin-bottom: 18px;
+}
+
+.form_habilidades[hidden]{
+    display: none;
+}
+
+.form_habilidades legend{
+    padding: 0 6px;
+}
+
+.form_habilidades_grilla{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px 16px;
+}
+
+.form_acciones{
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.form_subtitulo{
+    color: #bfc7d5;
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+.form_subtitulo small{
+    color: #6f7a8c;
+    font-weight: normal;
+}
+
+/* titulares: filas por posicion + canchita de vista previa */
+.form_titulares{
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 18px;
+    margin-bottom: 18px;
+}
+
+.form_titulares .campo_ayuda{
+    display: block;
+    margin-bottom: 10px;
+}
+
+.form_titulares_cancha{
+    position: sticky;
+    top: 0;
+    align-self: start;
+}
+
+.cancha_mini{
+    min-height: 300px;
+}
+
+.cancha_mini .cancha_numero{
+    width: 34px;
+    height: 34px;
+    font-size: 11px;
+}
+
+.fila_jugador{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 6px 8px;
+    margin-bottom: 6px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    background: #07152f;
+}
+
+.fila_activa{
+    border-color: #f0b429;
+}
+
+.fila_posicion{
+    flex: 0 0 150px;
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.fila_posicion strong{
+    flex-shrink: 0;
+    min-width: 38px;
+    padding: 3px 6px;
+
+    border-radius: 6px;
+    background: rgba(29,143,255,0.15);
+
+    color: #1d8fff;
+    font-size: 12px;
+    text-align: center;
+}
+
+.fila_posicion span{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    color: #bfc7d5;
+    font-size: 12px;
+}
+
+.fila_jugador input,
+.fila_jugador select{
+    min-width: 0;
+    background: #050b18;
+    border: 1px solid #1b2c47;
+    border-radius: 6px;
+
+    color: white;
+    font-size: 13px;
+    padding: 7px 9px;
+}
+
+.fila_jugador input[type="text"]{
+    flex: 1;
+}
+
+.fila_jugador .campo_numero{
+    flex: 0 0 58px;
+}
+
+.fila_jugador .selector_posicion{
+    flex: 0 0 190px;
+}
+
+.fila_jugador input:focus,
+.fila_jugador select:focus{
+    outline: none;
+    border-color: #1d8fff;
+}
+
+.form_suplentes{
+    margin-bottom: 18px;
+}
+
+.boton_chico{
+    padding: 8px 14px;
+    font-size: 13px;
+}
+
+.boton_chico:disabled{
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+
+/* ventana del equipo */
+
+.modal_equipo{
+    width: min(900px, calc(100% - 32px));
+    max-height: calc(100vh - 40px);
+    margin: auto;
+    padding: 0;
+
+    background: #050b18;
+    border: 1px solid #1b2c47;
+    border-radius: 16px;
+    color: #dfe1e6;
+}
+
+.modal_equipo::backdrop{
+    background: rgba(2,8,23,0.8);
+}
+
+.modal_equipo[open]{
+    animation: aparecer 0.2s ease-out;
+}
+
+@keyframes aparecer{
+    from{ opacity: 0; transform: translateY(15px) scale(0.97); }
+    to{ opacity: 1; transform: none; }
+}
+
+.modal_cabecera{
+    display: flex;
+    align-items: center;
+    gap: 18px;
+
+    padding: 22px 26px;
+    border-bottom: 1px solid #111827;
+    border-left: 4px solid #1d8fff;
+}
+
+.modal_logo{
+    width: 72px;
+    height: 72px;
+    object-fit: contain;
+}
+
+.modal_cabecera div{
+    flex: 1;
+}
+
+.modal_cabecera h2{
+    color: white;
+    font-size: 24px;
+}
+
+.modal_cabecera p{
+    color: #8b95a7;
+    font-size: 13px;
+    margin-top: 4px;
+}
+
+.modal_cerrar{
+    align-self: flex-start;
+    width: 36px;
+    height: 36px;
+
+    background: #07152f;
+    border: 1px solid #1b2c47;
+    border-radius: 50%;
+
+    color: white;
+    font-size: 22px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.modal_cerrar:hover{
+    border-color: #1d8fff;
+}
+
+.modal_cuerpo{
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 22px;
+    padding: 24px 26px 28px;
+}
+
+.modal_bloque_ancho{
+    grid-column: 1 / -1;
+}
+
+.modal_bloque h3{
+    color: white;
+    font-size: 15px;
+    margin-bottom: 12px;
+}
+
+.modal_bloque h3 span{
+    color: #1d8fff;
+    font-weight: normal;
+    margin-left: 6px;
+}
+
+/* cancha con los 11 titulares (arquero abajo) */
+.cancha{
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-around;
+    gap: 10px;
+    min-height: 330px;
+    padding: 16px 8px;
+
+    border: 2px solid rgba(255,255,255,0.18);
+    border-radius: 10px;
+    background:
+        linear-gradient(rgba(255,255,255,0.18), rgba(255,255,255,0.18)) center / 100% 2px no-repeat,
+        repeating-linear-gradient(0deg, #0c3d24 0 40px, #0e4529 40px 80px);
+}
+
+/* parquet de basquet */
+.cancha_basquetbol,
+.cancha_basquet3x3{
+    background:
+        linear-gradient(rgba(255,255,255,0.25), rgba(255,255,255,0.25)) center / 100% 2px no-repeat,
+        repeating-linear-gradient(90deg, #6b4423 0 30px, #74492a 30px 60px);
+}
+
+/* pista azul (futsal y handball) */
+.cancha_futsal,
+.cancha_handball{
+    background:
+        linear-gradient(rgba(255,255,255,0.25), rgba(255,255,255,0.25)) center / 100% 2px no-repeat,
+        #1d4f91;
+}
+
+/* media cancha de voley (la red arriba) */
+.cancha_voley{
+    min-height: 260px;
+    border-top: 5px solid white;
+    background: #9a4f22;
+}
+
+.cancha_voleyplaya{
+    min-height: 220px;
+    border-top: 5px solid white;
+    background: #c9a46a;
+}
+
+/* hielo */
+.cancha_hockeyhielo{
+    background:
+        linear-gradient(#c0392b, #c0392b) center / 100% 3px no-repeat,
+        #dfe9f2;
+}
+
+.cancha_hockeyhielo .cancha_nombre{
+    color: #0b1a33;
+    text-shadow: none;
+}
+
+/* pileta */
+.cancha_waterpolo{
+    background: repeating-linear-gradient(90deg, #0f5e8c 0 36px, #106a9d 36px 72px);
+}
+
+/* diamante de beisbol/softbol */
+.cancha_beisbol,
+.cancha_softbol{
+    background:
+        radial-gradient(circle at 50% 85%, #8a5a33 0 28%, transparent 29%),
+        repeating-linear-gradient(0deg, #0c3d24 0 40px, #0e4529 40px 80px);
+}
+
+.cancha_linea{
+    display: flex;
+    justify-content: space-around;
+    gap: 2px;
+}
+
+.cancha_jugador{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    flex: 0 1 70px;
+    min-width: 0;
+}
+
+.cancha_resaltado .cancha_numero{
+    outline: 3px solid #f0b429;
+    outline-offset: 2px;
+    transform: scale(1.15);
+}
+
+.cancha_resaltado .cancha_nombre{
+    color: #f0b429;
+    font-weight: bold;
+}
+
+/* circulo de una posicion que todavia no tiene jugador */
+.avatar.avatar_vacio{
+    background: rgba(5,11,24,0.55);
+    border-style: dashed;
+    font-size: 10px;
+}
+
+/* circulito con la foto del jugador (o sus iniciales) */
+.avatar{
+    position: relative;
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+    background: #1d8fff;
+
+    color: white;
+    font-weight: bold;
+}
+
+.avatar img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.cancha_numero{
+    width: 42px;
+    height: 42px;
+    border: 2px solid white;
+    font-size: 13px;
+}
+
+/* dorsal chiquito sobre la foto */
+.cancha_dorsal{
+    position: absolute;
+    right: -6px;
+    bottom: -4px;
+
+    min-width: 18px;
+    height: 18px;
+    padding: 0 4px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 9px;
+    background: #050b18;
+    border: 1px solid white;
+
+    color: white;
+    font-size: 10px;
+}
+
+.cancha_nombre{
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    color: white;
+    font-size: 11px;
+    text-align: center;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.8);
+}
+
+/* habilidades */
+.habilidades_media{
+    color: #8b95a7;
+    font-size: 13px;
+    margin-bottom: 14px;
+}
+
+.habilidades_media strong{
+    color: #1d8fff;
+    font-size: 34px;
+    margin-right: 6px;
+}
+
+.habilidad{
+    display: grid;
+    grid-template-columns: 80px 1fr 30px;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 11px;
+}
+
+.habilidad_nombre{
+    color: #bfc7d5;
+    font-size: 13px;
+}
+
+.habilidad_barra{
+    height: 8px;
+    background: #0d1524;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.habilidad_barra span{
+    display: block;
+    height: 100%;
+    background: #1d8fff;
+    border-radius: 8px;
+}
+
+.habilidad_valor{
+    color: white;
+    font-size: 13px;
+    font-weight: bold;
+    text-align: right;
+}
+
+.habilidades_bloqueadas{
+    padding: 22px 18px;
+    border: 1px dashed #1b2c47;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.habilidades_bloqueadas strong{
+    color: white;
+    font-size: 15px;
+}
+
+.habilidades_bloqueadas p{
+    color: #8b95a7;
+    font-size: 13px;
+    margin-top: 8px;
+    line-height: 1.5;
+}
+
+/* lista de integrantes */
+.integrantes{
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px 20px;
+}
+
+.integrantes li{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 9px 12px;
+    background: #07152f;
+    border-radius: 8px;
+    font-size: 13px;
+}
+
+.integrantes li.suplente{
+    background: transparent;
+    border: 1px solid #111827;
+}
+
+.integrante_foto{
+    width: 34px;
+    height: 34px;
+    font-size: 12px;
+    border: 1px solid #1b2c47;
+}
+
+.integrante_quitar{
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+
+    border: 1px solid #1b2c47;
+    border-radius: 50%;
+    background: transparent;
+
+    color: #8b95a7;
+    font-size: 14px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.integrante_quitar:hover{
+    color: #ff7a7a;
+    border-color: #ff7a7a;
+}
+
+.modal_bloque h3 .ayuda_bloque{
+    display: block;
+    color: #6f7a8c;
+    font-size: 12px;
+    font-weight: normal;
+    margin: 4px 0 0;
+}
+
+/* foto del jugador dentro del formulario de edicion */
+.foto_jugador{
+    position: relative;
+    flex-shrink: 0;
+}
+
+.foto_boton{
+    display: block;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+/* el input de archivo queda invisible: se abre tocando el circulo */
+.foto_campo{
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    overflow: hidden;
+}
+
+.foto_vista{
+    width: 36px;
+    height: 36px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px dashed #3a5478;
+    border-radius: 50%;
+    background: #050b18;
+
+    color: #6f7a8c;
+    font-size: 9px;
+    text-align: center;
+    line-height: 1.1;
+}
+
+.foto_vista img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.foto_boton:hover .foto_vista,
+.foto_campo:focus-visible + .foto_vista{
+    border-color: #1d8fff;
+    color: #1d8fff;
+}
+
+.foto_quitar{
+    position: absolute;
+    top: -5px;
+    right: -6px;
+
+    width: 17px;
+    height: 17px;
+    padding: 0;
+
+    border: 1px solid #1b2c47;
+    border-radius: 50%;
+    background: #07152f;
+
+    color: #ff7a7a;
+    font-size: 11px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.foto_quitar[hidden]{
+    display: none;
+}
+
+/* tarjetas (amarilla / roja) */
+.tarjetas{
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+}
+
+.tarjeta{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+    width: 11px;
+    height: 15px;
+    border-radius: 2px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.5);
+
+    color: #0b1a33;
+    font-size: 9px;
+    font-weight: bold;
+}
+
+.tarjeta_amarilla{
+    background: #f5c518;
+}
+
+.tarjeta_roja{
+    background: #e53935;
+}
+
+.integrante_tarjetas{
+    margin-left: 8px;
+    vertical-align: middle;
+}
+
+/* sobre el circulo del jugador en la cancha */
+.cancha_tarjetas{
+    position: absolute;
+    top: -4px;
+    left: -6px;
+}
+
+/* avisos disciplinarios */
+.bloque_avisos{
+    border-top: 1px solid #111827;
+    padding-top: 18px;
+}
+
+.lista_avisos{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 14px;
+}
+
+.aviso_disciplina{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 10px 12px;
+    border: 1px solid #1b2c47;
+    border-left-width: 4px;
+    border-radius: 8px;
+    background: #07152f;
+}
+
+.aviso_amarilla{
+    border-left-color: #f5c518;
+}
+
+.aviso_roja{
+    border-left-color: #e53935;
+}
+
+.aviso_disciplina .tarjeta{
+    width: 16px;
+    height: 22px;
+}
+
+.aviso_texto{
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.aviso_titulo{
+    color: #bfc7d5;
+    font-size: 13px;
+}
+
+.aviso_titulo strong{
+    color: white;
+}
+
+.aviso_partido{
+    color: #8b95a7;
+    font-size: 12px;
+}
+
+.aviso_duracion{
+    color: #bfc7d5;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* le queda el ultimo partido: se elimina en el proximo */
+.aviso_ultimo{
+    color: #7ee08a;
+}
+
+.partidos_jugados{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+
+    margin-bottom: 12px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    background: #07152f;
+
+    color: #8b95a7;
+    font-size: 13px;
+}
+
+.partidos_jugados strong{
+    color: white;
+    font-size: 15px;
+}
+
+.aviso_detalle{
+    color: #6f7a8c;
+    font-size: 12px;
+    font-style: italic;
+}
+
+.form_aviso{
+    padding: 14px;
+    border: 1px dashed #1b2c47;
+    border-radius: 10px;
+}
+
+.form_aviso[hidden]{
+    display: none;
+}
+
+.form_aviso_campos{
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px 12px;
+    margin: 8px 0 12px;
+}
+
+.campo_ancho{
+    grid-column: 1 / -1;
+}
+
+/* clientes que pueden editar el club */
+.bloque_editores{
+    border-top: 1px solid #111827;
+    padding-top: 18px;
+}
+
+.lista_editores{
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.editor{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 6px 8px 6px 12px;
+    border: 1px solid #1b2c47;
+    border-radius: 20px;
+    background: #07152f;
+    font-size: 13px;
+}
+
+.editor_nombre{
+    color: white;
+}
+
+.editor_correo{
+    color: #6f7a8c;
+    font-size: 12px;
+}
+
+.lista_editores_vacia{
+    color: #6f7a8c;
+    font-size: 13px;
+}
+
+.form_editor{
+    display: flex;
+    gap: 10px;
+    margin-bottom: 6px;
+}
+
+/* pregunta antes de darle el rol participante a un cliente sin club */
+.confirmar_rol{
+    margin-bottom: 12px;
+    padding: 14px;
+    border: 1px solid rgba(240,180,41,0.4);
+    border-radius: 10px;
+    background: rgba(240,180,41,0.08);
+}
+
+.confirmar_rol[hidden]{
+    display: none;
+}
+
+.confirmar_rol p{
+    color: #dfe1e6;
+    font-size: 13px;
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
+
+.confirmar_rol small{
+    display: block;
+    color: #f0b429;
+    font-size: 12px;
+}
+
+.confirmar_rol form{
+    display: flex;
+    gap: 8px;
+}
+
+.form_editor input[type="email"]:focus{
+    outline: none;
+    border-color: #1d8fff;
+}
+
+.form_editor select,
+.form_editor input[type="email"]{
+    flex: 1;
+    min-width: 0;
+
+    background: #07152f;
+    border: 1px solid #1b2c47;
+    border-radius: 8px;
+
+    color: white;
+    font-size: 13px;
+    padding: 8px 10px;
+}
+
+.aviso_modal{
+    margin: 16px 26px 0;
+}
+
+.integrante_numero{
+    width: 24px;
+    color: #1d8fff;
+    font-weight: bold;
+    text-align: right;
+}
+
+.integrante_nombre{
+    flex: 1;
+    color: white;
+}
+
+.integrante_pos{
+    color: #8b95a7;
+    font-size: 12px;
+    width: 34px;
+}
+
+.integrante_rol{
+    color: #6f7a8c;
+    font-size: 11px;
+}
+
+
+/* responsive */
+
+@media (max-width: 768px){
+
+    .contenedor{
+        padding: 25px 15px 45px;
+    }
+
+    .seccion_cabecera_acciones{
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .form_club{
+        padding: 16px;
+    }
+
+    .form_grilla{
+        grid-template-columns: 1fr;
+    }
+
+    .form_habilidades_grilla{
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .form_titulares{
+        grid-template-columns: 1fr;
+    }
+
+    .form_aviso_campos{
+        grid-template-columns: 1fr 1fr;
+    }
+
+    /* en celular la canchita va arriba de las filas */
+    .form_titulares_cancha{
+        position: static;
+        order: -1;
+    }
+
+    .fila_jugador{
+        flex-wrap: wrap;
+    }
+
+    .fila_posicion{
+        flex-basis: 100%;
+    }
+
+    .fila_jugador .selector_posicion{
+        flex: 1 1 100%;
+    }
+
+    .fila_equipo_boton{
+        gap: 12px;
+        padding: 10px 12px;
+    }
+
+    .fila_equipo_logo{
+        width: 44px;
+        height: 44px;
+    }
+
+    .fila_equipo_dato,
+    .fila_equipo_ver{
+        display: none;
+    }
+
+    .buscador{
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+    }
+
+    .modal_cabecera{
+        padding: 16px;
+        gap: 12px;
+    }
+
+    .modal_logo{
+        width: 52px;
+        height: 52px;
+    }
+
+    .modal_cabecera h2{
+        font-size: 19px;
+    }
+
+    .modal_cuerpo{
+        grid-template-columns: 1fr;
+        padding: 18px 16px 22px;
+    }
+
+    .cancha_jugador{
+        width: 56px;
+    }
+
+    .integrantes{
+        grid-template-columns: 1fr;
+    }
+}
+
+/* accesibilidad */
+a:focus-visible{
+    outline: 2px solid #1d8fff;
+    outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce){
+    .modal_equipo[open]{
+        animation: none;
+    }
+
+    .fila_equipo_logo{
+        transition: none;
+    }
+}

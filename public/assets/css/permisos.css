@@ -1,0 +1,356 @@
+.permisos-body {
+    background: #020817;
+}
+
+.permisos-barra {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px max(20px, calc((100% - 1160px) / 2));
+    border-bottom: 1px solid #172238;
+    background: #050b18;
+}
+
+.permisos-barra a {
+    color: #b5c0d0;
+    font-size: 13px;
+    text-decoration: none;
+}
+
+.permisos-marca {
+    color: #fff !important;
+    font-size: 20px !important;
+    font-weight: 800;
+}
+
+.permisos-marca span {
+    color: #1d8fff;
+}
+
+.permisos-pagina {
+    width: min(1160px, 100%);
+    margin: 0 auto;
+    padding: 38px 24px 60px;
+    flex: 1;
+}
+
+.permisos-encabezado {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding-bottom: 22px;
+    border-bottom: 1px solid #1c293d;
+}
+
+.permisos-encabezado p {
+    margin-bottom: 7px;
+    color: #70b5ff;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.permisos-encabezado h1 {
+    color: #fff;
+    font-size: 26px;
+}
+
+.permisos-encabezado span {
+    display: block;
+    max-width: 660px;
+    margin-top: 8px;
+    color: #8e9aae;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.permisos-encabezado > strong {
+    flex-shrink: 0;
+    color: #e1e8f1;
+    font-size: 13px;
+}
+
+.permisos-mensaje {
+    margin: 18px 0;
+    padding: 11px 14px;
+    border: 1px solid;
+    border-radius: 4px;
+    font-size: 13px;
+}
+
+.permisos-exito {
+    border-color: #27583d;
+    background: #0d2116;
+    color: #9bd7af;
+}
+
+.permisos-error {
+    border-color: #6d3434;
+    background: #261414;
+    color: #ffb0b0;
+}
+
+.permisos-tabla-desplazable {
+    margin-top: 20px;
+    overflow-x: auto;
+    border: 1px solid #233149;
+    border-radius: 6px;
+    background: #050b18;
+}
+
+.permisos-matriz {
+    margin-top: 28px;
+}
+
+.permisos-matriz h2,
+.permisos-usuarios-titulo {
+    margin: 0 0 12px;
+    color: #e1e8f1;
+    font-size: 17px;
+}
+
+.permisos-tabla-matriz {
+    min-width: 920px;
+}
+
+.permisos-tabla-matriz th:not(:first-child),
+.permisos-tabla-matriz td {
+    text-align: center;
+}
+
+.permisos-tabla-matriz tbody th {
+    background: transparent;
+    color: #d7deea;
+    font-size: 12px;
+    text-align: left;
+    text-transform: none;
+}
+
+.permiso-concedido {
+    color: #9bd7af !important;
+}
+
+.permiso-denegado {
+    color: #8290a5 !important;
+}
+
+.permisos-usuarios-titulo {
+    margin-top: 30px;
+}
+
+.permisos-busqueda {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 14px;
+}
+
+.permisos-busqueda label {
+    color: #b9c6d8;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.permisos-busqueda input {
+    width: min(100%, 380px);
+    min-height: 40px;
+    padding: 0 12px;
+    border: 1px solid #30415a;
+    border-radius: 4px;
+    background: #080f1c;
+    color: #dce5f0;
+    font: inherit;
+    font-size: 13px;
+}
+
+.permisos-busqueda input:focus {
+    border-color: #3479d3;
+    outline: 2px solid #3479d355;
+}
+
+.permisos-busqueda span {
+    color: #8e9aae;
+    font-size: 12px;
+}
+
+.permisos-tabla {
+    width: 100%;
+    min-width: 740px;
+    border-collapse: collapse;
+}
+
+.permisos-tabla th,
+.permisos-tabla td {
+    padding: 14px 16px;
+    border-bottom: 1px solid #192437;
+    text-align: left;
+}
+
+.permisos-tabla th {
+    background: #101d31;
+    color: #b9c6d8;
+    font-size: 11px;
+    text-transform: uppercase;
+}
+
+.permisos-tabla td {
+    color: #d7deea;
+    font-size: 13px;
+}
+
+.permisos-tabla tbody tr:nth-child(even) {
+    background: #080f1d;
+}
+
+.permiso-rol {
+    display: inline-block;
+    padding: 5px 8px;
+    border: 1px solid #30415a;
+    border-radius: 3px;
+    background: #101b2b;
+    color: #cad8e8;
+    font-size: 11px;
+}
+
+.permiso-rol.rol-admin {
+    border-color: #714844;
+    background: #281919;
+    color: #f2aaa3;
+}
+
+.permiso-rol.rol-organizador {
+    border-color: #63502d;
+    background: #241e12;
+    color: #e7c77e;
+}
+
+.permiso-rol.rol-participante {
+    border-color: #315742;
+    background: #122319;
+    color: #a4d69a;
+}
+
+.permiso-rol.rol-cliente {
+    border-color: #31526c;
+    background: #11202d;
+    color: #9bc6e7;
+}
+
+.permiso-form {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.permiso-form select {
+    min-height: 34px;
+    padding: 0 9px;
+    border: 1px solid #30415a;
+    border-radius: 4px;
+    background: #080f1c;
+    color: #dce5f0;
+    font: inherit;
+    font-size: 12px;
+}
+
+.permiso-form button {
+    min-height: 34px;
+    padding: 0 12px;
+    border: 1px solid #3479d3;
+    border-radius: 4px;
+    background: #1749a8;
+    color: #fff;
+    font: inherit;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.permiso-form button:hover {
+    background: #1a5bc8;
+}
+
+.permiso-acciones {
+    display: grid;
+    min-width: 220px;
+    gap: 10px;
+}
+
+.permiso-cuenta-detalles summary {
+    color: #9bc6e7;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.permiso-seguridad-form {
+    display: grid;
+    max-width: 280px;
+    gap: 7px;
+    margin-top: 10px;
+}
+
+.permiso-seguridad-form label {
+    color: #b9c6d8;
+    font-size: 11px;
+}
+
+.permiso-seguridad-form input {
+    min-height: 34px;
+    padding: 0 9px;
+    border: 1px solid #30415a;
+    border-radius: 4px;
+    background: #080f1c;
+    color: #dce5f0;
+    font: inherit;
+    font-size: 12px;
+}
+
+.permiso-seguridad-form button,
+.permiso-eliminar-form button {
+    min-height: 34px;
+    padding: 0 12px;
+    border: 1px solid #3479d3;
+    border-radius: 4px;
+    background: #1749a8;
+    color: #fff;
+    font: inherit;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.permiso-eliminar-form button {
+    border-color: #714844;
+    background: #381b1b;
+    color: #ffb0b0;
+}
+
+.permiso-eliminar-form button:hover {
+    background: #542121;
+}
+
+.permiso-propio {
+    color: #7f8ba0;
+    font-size: 12px;
+}
+
+.oculto-visual {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    clip-path: inset(50%);
+}
+
+@media (max-width: 640px) {
+    .permisos-pagina {
+        padding: 28px 16px 42px;
+    }
+
+    .permisos-encabezado {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}

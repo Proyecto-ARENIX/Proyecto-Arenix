@@ -1,0 +1,165 @@
+/* habilidades del jugador (laboratorio fisico). todo va dentro de .lab-fisica para no pisar el resto de la pagina */
+
+.lab-fisica{
+  --lab-tinta:#e9edf5;
+  --lab-tinta-suave:#8b93a7;
+  --lab-linea:#111827;
+  --lab-tarjeta:#050b18;
+  --lab-elevado:#07152f;
+  --lab-cobalto:#1d8fff;
+  --lab-crono:#ff5a5a;
+  --lab-verde:#7ee08a;
+  --lab-display:"Barlow Condensed","Arial Narrow",Impact,sans-serif;
+  --lab-texto:"Source Sans 3","Segoe UI",system-ui,sans-serif;
+
+  max-width:1080px;
+  margin:0 auto;
+  padding:40px 20px 60px;
+
+  color:var(--lab-tinta);
+  font-family:var(--lab-texto);
+  font-size:16px;
+  line-height:1.55;
+}
+
+.lab-fisica a{color:var(--lab-cobalto)}
+
+/* encabezado */
+.lab-fisica .cabecera-lab{padding:0}
+.lab-fisica .ruta-lab{margin:0 0 18px;font-size:14px;color:var(--lab-tinta-suave);letter-spacing:.02em}
+.lab-fisica .ruta-lab a{text-decoration:none;font-weight:600}
+.lab-fisica .ruta-lab a:hover{text-decoration:underline}
+.lab-fisica h1{
+  font-family:var(--lab-display);font-weight:700;font-size:clamp(32px,6vw,58px);
+  line-height:.98;margin:0 0 14px;letter-spacing:-.01em;
+}
+.lab-fisica .bajada{max-width:64ch;margin:0 0 28px;color:var(--lab-tinta-suave)}
+
+/* Pista de referencia como imagen del encabezado */
+.lab-fisica .pista{position:relative;height:76px;margin-bottom:44px}
+.lab-fisica .pista .carril{
+  position:absolute;inset:18px 0 22px;background:var(--lab-cobalto);
+  border-radius:2px;
+  background-image:repeating-linear-gradient(90deg,transparent 0 calc(25% - 2px),rgba(255,255,255,.55) calc(25% - 2px) 25%);
+}
+.lab-fisica .pista .marca{position:absolute;bottom:0;font-family:var(--lab-display);font-size:14px;color:var(--lab-tinta-suave);transform:translateX(-50%)}
+.lab-fisica .pista .marca:first-of-type{transform:none}
+.lab-fisica .pista .marca:last-of-type{transform:translateX(-100%)}
+.lab-fisica .pista .salida,.lab-fisica .pista .llegada{position:absolute;top:0;font-family:var(--lab-display);font-size:14px;font-weight:600}
+.lab-fisica .pista .salida{left:0;color:var(--lab-cobalto)}
+.lab-fisica .pista .llegada{right:0;color:var(--lab-crono)}
+
+/* secciones */
+.lab-fisica section{margin-bottom:52px}
+.lab-fisica h2{
+  font-family:var(--lab-display);font-weight:600;font-size:28px;margin:0 0 6px;
+  border-bottom:2px solid var(--lab-tinta);padding-bottom:6px;
+}
+.lab-fisica .sub{margin:0 0 22px;color:var(--lab-tinta-suave);font-size:15px;max-width:70ch}
+
+/* formulario */
+.lab-fisica form{background:var(--lab-tarjeta);border:1px solid var(--lab-linea);padding:22px}
+.lab-fisica .campos{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:18px}
+.lab-fisica label{display:block;font-size:14px;font-weight:600;margin-bottom:6px}
+.lab-fisica label .u{font-weight:400;color:var(--lab-tinta-suave)}
+.lab-fisica input,
+.lab-fisica select{
+  width:100%;padding:10px 12px;font-family:var(--lab-texto);font-size:16px;
+  border:1px solid var(--lab-linea);background:var(--lab-elevado);color:var(--lab-tinta);border-radius:0;
+}
+.lab-fisica input:focus,
+.lab-fisica select:focus{outline:2px solid var(--lab-cobalto);outline-offset:1px}
+.lab-fisica .acciones{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:22px}
+.lab-fisica button{
+  font-family:var(--lab-display);font-size:18px;font-weight:600;letter-spacing:.02em;
+  padding:9px 22px;border:1px solid #1a4fd0;background:#1a4fd0;color:#ffffff;
+  cursor:pointer;border-radius:8px;
+}
+.lab-fisica button:hover{background:#2563eb;border-color:#2563eb}
+.lab-fisica button:focus-visible{outline:2px solid var(--lab-crono);outline-offset:2px}
+.lab-fisica button.fantasma{background:transparent;color:var(--lab-tinta);border-color:#2b3a55}
+.lab-fisica button.fantasma:hover{background:#16233d;color:var(--lab-tinta)}
+.lab-fisica .aviso{font-size:14px;color:var(--lab-crono);min-height:1.4em;margin:10px 0 0}
+
+/* tabla */
+.lab-fisica .desplazable{overflow-x:auto;background:var(--lab-tarjeta);border:1px solid var(--lab-linea)}
+.lab-fisica table{border-collapse:collapse;width:100%;min-width:900px;font-variant-numeric:tabular-nums}
+.lab-fisica th,.lab-fisica td{padding:9px 12px;text-align:right;border-bottom:1px solid #0d1524;font-size:15px;white-space:nowrap}
+.lab-fisica th{
+  font-family:var(--lab-display);font-weight:600;font-size:16px;
+  background:var(--lab-elevado);color:#bfc7d5;position:sticky;top:0;
+  border-bottom:1px solid var(--lab-linea);
+}
+.lab-fisica td{color:#dfe1e6}
+.lab-fisica th:first-child,.lab-fisica td:first-child{text-align:left}
+.lab-fisica tbody tr:hover td{background:var(--lab-elevado)}
+.lab-fisica .deporte-etiqueta{
+  display:inline-block;font-family:var(--lab-display);font-size:12px;letter-spacing:.03em;
+  padding:2px 8px;border:1px solid var(--lab-linea);border-radius:20px;color:var(--lab-tinta-suave);
+  text-transform:uppercase;white-space:nowrap;
+}
+.lab-fisica .borrar{background:none;border:none;color:var(--lab-crono);font-family:var(--lab-texto);font-size:14px;padding:2px 6px;cursor:pointer}
+.lab-fisica .borrar:hover{background:var(--lab-crono);color:#ffffff}
+.lab-fisica .vacio{padding:26px;background:var(--lab-tarjeta);border:1px dashed #2b3a55;color:var(--lab-tinta-suave)}
+
+/* ranking */
+.lab-fisica ol.ranking{list-style:none;counter-reset:pos;margin:0;padding:0;display:grid;gap:10px}
+.lab-fisica ol.ranking li{
+  counter-increment:pos;display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;
+  background:var(--lab-tarjeta);border:1px solid var(--lab-linea);border-left:4px solid var(--lab-cobalto);padding:12px 16px;
+}
+.lab-fisica ol.ranking li::before{
+  content:counter(pos);font-family:var(--lab-display);font-size:26px;font-weight:700;color:var(--lab-cobalto);min-width:26px;
+}
+.lab-fisica ol.ranking li:first-child{border-left-color:var(--lab-crono)}
+.lab-fisica ol.ranking li:first-child::before{color:var(--lab-crono)}
+.lab-fisica .nombre{font-weight:600;color:#ffffff}
+.lab-fisica .dato{font-family:var(--lab-display);font-size:24px;font-variant-numeric:tabular-nums;margin-left:auto}
+.lab-fisica .dato span{font-family:var(--lab-texto);font-size:14px;color:var(--lab-tinta-suave);margin-left:4px}
+
+/* gráficos */
+.lab-fisica .graficos{display:grid;gap:26px;grid-template-columns:1fr}
+@media(min-width:860px){.lab-fisica .graficos{grid-template-columns:1fr 1fr}}
+.lab-fisica figure{margin:0;background:var(--lab-tarjeta);border:1px solid var(--lab-linea);padding:18px}
+.lab-fisica figcaption{font-family:var(--lab-display);font-size:20px;font-weight:600;margin-bottom:12px;color:#ffffff}
+.lab-fisica svg{width:100%;height:auto;display:block}
+.lab-fisica .veo-demo figure{padding:0;overflow:hidden}
+.lab-fisica .veo-demo figcaption{padding:18px 18px 0}
+.lab-fisica .veo-demo img{width:100%;height:auto;display:block;margin-top:18px}
+.lab-fisica .leyenda{display:flex;flex-wrap:wrap;gap:14px;margin-top:12px;font-size:14px;color:var(--lab-tinta-suave)}
+.lab-fisica .leyenda i{width:12px;height:12px;display:inline-block;margin-right:6px;border-radius:3px}
+
+/* modelo */
+.lab-fisica .modelo{display:grid;gap:22px;grid-template-columns:1fr}
+.lab-fisica .formulas{background:var(--lab-tarjeta);border:1px solid var(--lab-linea);padding:18px 22px}
+.lab-fisica .formulas dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:8px 18px;align-items:baseline}
+.lab-fisica .formulas dt{font-size:15px;color:var(--lab-tinta-suave)}
+.lab-fisica .formulas dd{margin:0;font-family:var(--lab-display);font-size:20px;color:var(--lab-cobalto)}
+
+.lab-fisica .lab-pie{border-top:1px solid var(--lab-linea);padding-top:18px;margin-top:8px;color:#6f7a8c;font-size:14px}
+
+@media print{
+  .barra_navegacion, footer{display:none}
+  .lab-fisica{
+    --lab-tinta:#16212B;
+    --lab-tinta-suave:#5A6B78;
+    --lab-linea:#D3DAE0;
+    --lab-tarjeta:#FFFFFF;
+    --lab-elevado:#EDF0F3;
+    background:#fff;
+  }
+  .lab-fisica .nombre,
+  .lab-fisica figcaption{color:var(--lab-tinta)}
+  .lab-fisica th{color:var(--lab-tinta)}
+  .lab-fisica td{color:var(--lab-tinta)}
+  .lab-fisica form,.lab-fisica .acciones,.lab-fisica .borrar{display:none}
+  .lab-fisica section{break-inside:avoid}
+}
+
+@media (max-width:600px){
+  .lab-fisica{
+    padding:26px 15px 45px;
+  }
+
+  .lab-fisica .dato{margin-left:0}
+}

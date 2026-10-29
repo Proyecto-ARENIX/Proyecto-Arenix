@@ -1,0 +1,633 @@
+ /*Reset*/
+ *{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+}
+/*FONDO*/
+body{
+    background: #020817;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+/*navar*/
+.barra_navegacion{
+    width: 100%;
+    height: 90%;
+    background: #050b18;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+    border-bottom: 1px solid #111827;
+
+}
+/*logo*/
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+}
+.logo img{
+    width: 100px;
+
+}
+
+.logo-texto{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.logo h1{
+    color: white;
+    font-size: 36px;
+    line-height: 1;
+    letter-spacing: 3px;
+    margin-right: -3px;
+}
+
+.logo span{
+    color: #1d8fff;
+}
+
+.logo-texto p{
+    color: #dfe1e6;
+    font-size: 9px;
+    letter-spacing: 0.4px;
+    white-space: nowrap;
+}
+
+/*menu*/
+.menu{
+    display: flex;
+    gap: 15px;
+}
+/*botones*/
+.menu a{
+    width: 120px;
+    height: 75px;
+
+    text-decoration: none;
+    color: white;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 12px;
+
+    transition: 0.3s;
+
+}
+/*iconos*/
+.menu a i{
+    font-size: 22px;
+    margin-bottom: 8px;
+
+}
+/*logos del menu (reemplazan a Font Awesome)*/
+.menu a img{
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    margin-bottom: 8px;
+
+}
+/*texto*/
+.menu a span{
+    font-size: 13px;
+
+}
+/*hover*/
+.menu a:hover{
+    background: #0d1a30;
+    color: #ffffff;
+}
+/* pagina actual marcada en el menu */
+.menu a.activo{
+    background: #07152f;
+    box-shadow: inset 0 -2px 0 #1d8fff;
+}
+/* submenu que sale al pasar el mouse (ligas -> reglamentos, resultados -> habilidades) */
+.menu-desplegable{
+    position: relative;
+}
+
+.submenu{
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    z-index: 40;
+    min-width: 210px;
+    padding-top: 6px; /* sin hueco, asi no se cierra al bajar el mouse */
+    transform: translateX(-50%);
+}
+
+.menu-desplegable:hover .submenu,
+.menu-desplegable:focus-within .submenu{
+    display: block;
+}
+
+.menu .submenu a{
+    width: auto;
+    height: auto;
+    display: block;
+    padding: 12px 14px;
+    border: 1px solid #26364e;
+    border-radius: 7px;
+    background: #080f1c;
+    box-shadow: 0 16px 36px rgba(0, 0, 0, .38);
+    color: #c8d2e0;
+    font-size: 13px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.menu .submenu a:hover,
+.menu .submenu a:focus-visible{
+    background: #111e30;
+    color: #fff;
+}
+/*login*/
+.boton-ingresar{
+    background: #1a4fd0;
+    color: white;
+
+    text-decoration: none;
+
+    padding: 11px 22px;
+
+    border-radius: 8px;
+    font-size: 14px;
+
+    transition: 0.2s;
+
+}
+
+.boton-ingresar:hover{
+    background: #2563eb;
+
+}
+
+/* menu de perfil */
+.perfil-menu {
+    position: relative;
+    z-index: 30;
+    flex-shrink: 0;
+}
+
+.perfil-disparador {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 5px 8px 5px 5px;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    color: #dfe1e6;
+    cursor: pointer;
+    list-style: none;
+}
+
+.perfil-disparador::-webkit-details-marker {
+    display: none;
+}
+
+.perfil-disparador:hover,
+.perfil-menu[open] .perfil-disparador {
+    border-color: #26364e;
+    background: #0b1423;
+}
+
+.perfil-avatar {
+    display: grid;
+    width: 40px;
+    height: 40px;
+    flex: 0 0 40px;
+    place-items: center;
+    border: 1px solid #3972b4;
+    border-radius: 50%;
+    background: #14375c;
+    color: #eaf4ff;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.perfil-avatar img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.perfil-identidad {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.perfil-nombre {
+    max-width: 140px;
+    overflow: hidden;
+    color: #f0f3f7;
+    font-size: 12px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.perfil-subtitulo {
+    color: #8b98aa;
+    font-size: 10px;
+}
+
+.perfil-flecha {
+    color: #8b98aa;
+    font-size: 12px;
+}
+
+.perfil-panel {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    width: min(300px, calc(100vw - 24px));
+    padding: 10px;
+    border: 1px solid #26364e;
+    border-radius: 7px;
+    background: #080f1c;
+    box-shadow: 0 16px 36px rgba(0, 0, 0, .38);
+}
+
+.perfil-panel-cuenta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 8px 14px;
+    border-bottom: 1px solid #1c293b;
+}
+
+.perfil-avatar-grande {
+    width: 46px;
+    height: 46px;
+    flex-basis: 46px;
+    font-size: 15px;
+}
+
+.perfil-panel-cuenta div {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.perfil-panel-cuenta strong {
+    overflow: hidden;
+    color: #f0f3f7;
+    font-size: 13px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.perfil-panel-cuenta div span {
+    overflow: hidden;
+    color: #8995a8;
+    font-size: 11px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.perfil-panel-cuenta div .perfil-rango {
+    width: fit-content;
+    margin-top: 2px;
+    padding: 3px 6px;
+    border: 1px solid #294665;
+    border-radius: 3px;
+    background: #0d1d2e;
+    color: #9bc8ef;
+    font-size: 9px;
+}
+
+.perfil-enlace {
+    display: block;
+    margin-top: 5px;
+    padding: 10px 9px;
+    border-radius: 4px;
+    color: #c8d2e0;
+    font-size: 12px;
+    text-decoration: none;
+}
+
+.perfil-enlace:hover,
+.perfil-enlace:focus-visible {
+    background: #111e30;
+    color: #fff;
+}
+
+/* acceso rapido al club del usuario en el menu de perfil */
+.perfil-enlace-club {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.perfil-enlace-club img {
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+}
+
+.perfil-enlace-club span:first-of-type {
+    flex: 1;
+}
+
+.perfil-enlace-club .perfil-enlace-liga {
+    flex: 0 0 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    background: rgba(166,107,255,0.2);
+    color: #c9a5ff;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.perfil-enlace-avisos {
+    min-width: 18px;
+    padding: 1px 5px;
+    border-radius: 9px;
+    background: #f5c518;
+    color: #0b1a33;
+    font-size: 10px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.perfil-salir {
+    color: #f0a0a0;
+}
+
+.perfil-salir:hover,
+.perfil-salir:focus-visible {
+    background: #2b171a;
+    color: #ffc0c0;
+}
+
+.envoltorio {
+    display: grid;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+  }
+
+.rectangulo_pie {
+    width: 100vw;
+    background-color: rgb(3, 11, 19);
+}
+
+a {
+    color: rgb(192, 192, 192); 
+}
+
+/* pie de pagina */
+footer{
+    width: 100%;
+    background: #030b13;
+    border-top: 1px solid #111827;
+    padding: 25px 0;
+}
+
+.pie {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.pie_izquierda{
+    flex: 1;
+}
+
+.pie_logo {
+   width: 150px;
+}
+
+/* links de terminos / privacidad / contacto, separados por barritas */
+.pie_enlaces {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pie_enlaces a{
+    color: #bfc7d5;
+    text-decoration: none;
+    font-size: 15px;
+    padding: 0 18px;
+}
+
+.pie_enlaces a:not(:last-child){
+    border-right: 1px solid #2b3a55;
+}
+
+.pie_enlaces a:hover{
+    color: #1d8fff;
+}
+
+/* redes sociales (corridas un poco hacia la izquierda del borde) */
+.pie_redes{
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 15px;
+    margin-right: 40px;
+    color: #bfc7d5;
+}
+
+.pie_redes img{
+    width: 26px;
+    height: 26px;
+    object-fit: contain;
+    transition: 0.3s;
+}
+
+.pie_redes a:hover{
+    color: #1d8fff;
+}
+
+/* linea de copyright, abajo de todo y chiquita */
+.pie_derechos{
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px solid #111827;
+    text-align: center;
+    color: #6b7488;
+    font-size: 12px;
+}
+
+/* pie de pagina en celular */
+@media (max-width: 768px){
+
+    footer{
+        padding: 25px 18px;
+    }
+
+    /* las 3 columnas pasan a una sola, apiladas y centradas */
+    .pie{
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+
+    .pie_izquierda,
+    .pie_redes{
+        flex: none;
+        margin-right: 0;
+        justify-content: center;
+    }
+
+    /* los links se apilan y se les sacan las barritas */
+    .pie_enlaces{
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .pie_enlaces a,
+    .pie_enlaces a:not(:last-child){
+        padding: 0;
+        border-right: none;
+    }
+
+    .pie_derechos{
+        font-size: 11px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+
+main{
+    flex: 1;
+
+}
+
+/* contenedor central del contenido */
+.inicio{
+    width: 100%;
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 28px 24px 48px;
+}
+
+/* titulo simple para paginas todavia sin contenido */
+.pagina-titulo{
+    color: #e9edf5;
+    font-size: 30px;
+    margin-bottom: 8px;
+}
+
+.pagina-texto{
+    color: #8b93a7;
+    font-size: 15px;
+}
+
+.pagina-texto a{
+    color: #1d8fff;
+}
+
+/* boton para escribir al correo de la empresa */
+.contacto-acciones{
+    margin-top: 20px;
+}
+
+/* botones */
+.boton-primario{
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+
+    background: #1a4fd0;
+    color: white;
+    text-decoration: none;
+
+    padding: 13px 26px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: bold;
+
+    border: none;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.boton-primario:hover{
+    background: #2563eb;
+}
+
+.boton-secundario{
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+
+    background: transparent;
+    color: #dfe1e6;
+    text-decoration: none;
+
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-size: 14px;
+
+    border: 1px solid #2b3a55;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.boton-secundario:hover{
+    background: #16233d;
+}
+
+/* tarjeta de aviso/promocion dentro de una pagina */
+.destacado-tarjeta{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+
+    background: #050b18;
+    border: 1px solid #111827;
+    border-left: 4px solid #1d8fff;
+    border-radius: 16px;
+
+    padding: 26px 30px;
+    margin-top: 24px;
+}
+
+.destacado-tarjeta h2{
+    color: #e9edf5;
+    font-size: 19px;
+    margin-bottom: 6px;
+}
+
+.destacado-tarjeta p{
+    color: #8b93a7;
+    font-size: 14px;
+    max-width: 480px;
+}
+
+@media (max-width: 600px){
+    .destacado-tarjeta{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+

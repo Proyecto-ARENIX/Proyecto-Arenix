@@ -1,0 +1,1418 @@
+/* ligas (torneos) */
+
+/* color de cada plan (los mismos que en la pagina de Planes) */
+.liga_basico{      --plan-color: #2ecc71; --plan-fondo: rgba(46,204,113,0.10); }
+.liga_profesional{ --plan-color: #1d8fff; --plan-fondo: rgba(29,143,255,0.10); }
+.liga_enterprise{  --plan-color: #a66bff; --plan-fondo: rgba(166,107,255,0.10); }
+/* vista publica: un solo color, sin delatar el plan */
+.liga_neutra{      --plan-color: #1d8fff; --plan-fondo: rgba(29,143,255,0.10); }
+
+
+/* lista de ligas */
+
+.lista_ligas{
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 16px;
+}
+
+.liga_tarjeta{
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    height: 100%;
+
+    padding: 20px;
+    background: #050b18;
+    border: 1px solid #111827;
+    border-top: 4px solid var(--plan-color);
+    border-radius: 14px;
+
+    color: #dfe1e6;
+    text-decoration: none;
+    transition: border-color 0.15s, transform 0.15s;
+}
+
+.liga_tarjeta:hover,
+.liga_tarjeta:focus-visible{
+    border-color: var(--plan-color);
+    transform: translateY(-2px);
+    outline: none;
+}
+
+.liga_tarjeta strong{
+    color: white;
+    font-size: 18px;
+}
+
+.liga_tarjeta small{
+    color: #8b95a7;
+    font-size: 13px;
+}
+
+.liga_tarjeta_plan{
+    align-self: flex-start;
+    padding: 3px 9px;
+    border-radius: 12px;
+    background: var(--plan-fondo);
+    color: var(--plan-color);
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.liga_tarjeta_datos{
+    display: flex;
+    gap: 14px;
+    margin-top: 8px;
+    padding-top: 10px;
+    border-top: 1px solid #111827;
+    color: #bfc7d5;
+    font-size: 12px;
+}
+
+.liga_tarjeta_mia{
+    color: #f0b429;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+
+/* logo de la liga (o sus iniciales si no tiene) */
+.liga_logo{
+    width: 52px;
+    height: 52px;
+    flex-shrink: 0;
+    border-radius: 12px;
+    object-fit: contain;
+    background: #07152f;
+}
+
+.liga_logo_iniciales{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--plan-color, #1d8fff);
+    background: var(--plan-fondo, rgba(29,143,255,0.10));
+    color: var(--plan-color, #1d8fff);
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.liga_logo_grande{
+    width: 72px;
+    height: 72px;
+    font-size: 24px;
+}
+
+.liga_tarjeta_cabeza{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 6px;
+}
+
+.logo_editar{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo_editar input{
+    min-width: 0;
+    color: #bfc7d5;
+    font-size: 13px;
+}
+
+/* foto de portada en la tarjeta de la lista */
+.liga_tarjeta_con_portada{
+    padding-top: 0;
+    overflow: hidden;
+}
+
+.liga_tarjeta_portada{
+    display: block;
+    width: calc(100% + 40px);
+    height: 110px;
+    margin: 0 -20px 4px;
+    object-fit: cover;
+}
+
+/* el logo se monta un poco sobre la portada */
+.liga_tarjeta_con_portada .liga_tarjeta_cabeza .liga_logo{
+    margin-top: -30px;
+    border: 2px solid #050b18;
+}
+
+/* foto de portada de fondo en la cabecera de la liga */
+.liga_cabecera{
+    position: relative;
+    overflow: hidden;
+}
+
+.liga_cabecera_portada{
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+/* degradé para que el texto se lea sobre la foto */
+.liga_cabecera_con_portada::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background: linear-gradient(180deg, rgba(5,11,24,0.30) 0%, rgba(5,11,24,0.75) 30%, rgba(5,11,24,0.92) 50%, #050b18 75%);
+}
+
+.liga_cabecera > *:not(.liga_cabecera_portada){
+    position: relative;
+    z-index: 1;
+}
+
+.liga_cabecera_con_portada .liga_titulo{
+    margin-top: 60px;
+}
+
+.liga_cabecera_con_portada .liga_titulo h1{
+    text-shadow: 0 2px 6px rgba(0,0,0,0.7);
+}
+
+.liga_cabecera_barra{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.liga_cambiar_fotos{
+    padding: 6px 12px;
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 8px;
+    background: rgba(5,11,24,0.6);
+    color: #dfe1e6;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.liga_cambiar_fotos:hover{
+    border-color: var(--plan-color);
+    color: white;
+}
+
+/* editar portada y logo (pestaña Administración) */
+.portada_editar{
+    margin-bottom: 10px;
+}
+
+.portada_vista{
+    display: block;
+    width: 100%;
+    height: 140px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.portada_vista[hidden]{
+    display: none;
+}
+
+.portada_vacia{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 140px;
+    border: 1px dashed #1b2c47;
+    border-radius: 10px;
+    color: #6f7a8c;
+    font-size: 13px;
+}
+
+.portada_vacia[hidden]{
+    display: none;
+}
+
+#bloqueImagenesLiga .campo{
+    margin-bottom: 14px;
+}
+
+#bloqueImagenesLiga .liga_logo[hidden]{
+    display: none;
+}
+
+/* buscador y filtros de ligas */
+.buscador_ligas{
+    flex-wrap: wrap;
+}
+
+.buscador_ligas input[type="search"]{
+    flex: 1 1 240px;
+}
+
+.filtro_mias{
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #bfc7d5;
+    font-size: 13px;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.filtro_mias input{
+    accent-color: #1d8fff;
+}
+
+.fila_liga[hidden]{
+    display: none;
+}
+
+
+.liga_tarjeta_ver{
+    color: var(--plan-color);
+    font-size: 12px;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 0.15s;
+}
+
+.liga_tarjeta:hover .liga_tarjeta_ver,
+.liga_tarjeta:focus-visible .liga_tarjeta_ver{
+    opacity: 1;
+}
+
+/* datos debajo del nombre de la liga: "Fútbol · 9 equipos · Apertura en curso" */
+.liga_datos{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 14px;
+}
+
+.liga_datos span + span::before{
+    content: "·";
+    margin-right: 14px;
+    color: #4c586b;
+}
+
+.liga_dato_torneo{
+    color: #7ee08a;
+}
+
+/* vista publica: destacados */
+
+.liga_publica .liga_titulo h1{
+    font-size: 30px;
+}
+
+.liga_destacados{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+.destacado_tarjeta{
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 14px 16px;
+    border: 1px solid #1b2c47;
+    border-radius: 12px;
+    background: rgba(7,21,47,0.85);
+}
+
+.destacado_lider{
+    border-color: rgba(240,180,41,0.45);
+    background: linear-gradient(135deg, rgba(240,180,41,0.12), rgba(7,21,47,0.85) 60%);
+}
+
+.destacado_titulo{
+    color: #8b95a7;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+}
+
+.destacado_lider .destacado_titulo{
+    color: #f0b429;
+}
+
+.destacado_equipo,
+.destacado_partido{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    color: white;
+    font-size: 15px;
+}
+
+.destacado_equipo strong{
+    font-size: 17px;
+}
+
+.destacado_partido em{
+    color: #6f7a8c;
+    font-size: 12px;
+    font-style: normal;
+}
+
+.destacado_partido .mini_escudo{
+    margin-right: 0;
+}
+
+.destacado_marcador{
+    padding: 2px 8px;
+    border-radius: 6px;
+    background: #050b18;
+    color: white;
+}
+
+.destacado_detalle{
+    color: #8b95a7;
+    font-size: 12px;
+}
+
+
+/* cabecera de una liga */
+
+.liga_cabecera{
+    margin-bottom: 26px;
+    padding: 22px 24px 0;
+    background: #050b18;
+    border: 1px solid #111827;
+    border-left: 4px solid var(--plan-color);
+    border-radius: 16px;
+}
+
+.liga_volver{
+    color: #8b95a7;
+    font-size: 13px;
+    text-decoration: none;
+}
+
+.liga_volver:hover{
+    color: white;
+}
+
+.liga_titulo{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 10px 0 18px;
+}
+
+.liga_titulo_texto{
+    flex: 1;
+    min-width: 0;
+}
+
+.liga_titulo h1{
+    color: white;
+    font-size: 26px;
+}
+
+.liga_titulo p{
+    color: #8b95a7;
+    font-size: 13px;
+    margin-top: 4px;
+}
+
+.liga_plan_insignia{
+    flex-shrink: 0;
+    padding: 7px 14px;
+    border: 1px solid var(--plan-color);
+    border-radius: 20px;
+    background: var(--plan-fondo);
+    color: var(--plan-color);
+    font-size: 13px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* uso de los limites del plan */
+.liga_medidores{
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+.medidor{
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 6px;
+    padding: 10px 12px;
+    border-radius: 10px;
+    background: #07152f;
+}
+
+.medidor_nombre{
+    color: #8b95a7;
+    font-size: 12px;
+}
+
+.medidor_valor{
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.medidor_valor small{
+    color: #6f7a8c;
+    font-weight: normal;
+}
+
+.medidor_barra{
+    grid-column: 1 / -1;
+    height: 6px;
+    border-radius: 6px;
+    background: #0d1524;
+    overflow: hidden;
+}
+
+.medidor_barra span{
+    display: block;
+    height: 100%;
+    background: var(--plan-color);
+}
+
+.medidor_lleno .medidor_barra span{
+    background: #f0b429;
+}
+
+/* pestañas */
+.liga_pestanas{
+    display: flex;
+    gap: 4px;
+    overflow-x: auto;
+}
+
+.liga_pestana{
+    padding: 12px 16px;
+    border: none;
+    border-bottom: 3px solid transparent;
+    background: none;
+
+    color: #8b95a7;
+    font-size: 14px;
+    font-weight: bold;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.liga_pestana:hover{
+    color: white;
+}
+
+.liga_pestana[aria-selected="true"]{
+    color: white;
+    border-bottom-color: var(--plan-color, #1d8fff);
+}
+
+.liga_cabecera .liga_pestana[aria-selected="true"]{
+    border-bottom-color: var(--plan-color);
+}
+
+.pestana_panel[hidden]{
+    display: none;
+}
+
+
+/* torneos */
+
+.lista_torneos{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 14px;
+}
+
+.torneo_chip{
+    display: flex;
+    flex-direction: column;
+    padding: 8px 14px;
+    border: 1px solid #1b2c47;
+    border-radius: 10px;
+    background: #050b18;
+
+    color: #dfe1e6;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.torneo_chip small{
+    color: #6f7a8c;
+    font-size: 11px;
+}
+
+.torneo_chip:hover,
+.torneo_chip_activo{
+    border-color: #1d8fff;
+    background: #07152f;
+}
+
+.form_linea{
+    display: flex;
+    gap: 10px;
+    margin-bottom: 18px;
+}
+
+.form_linea input{
+    flex: 1;
+    min-width: 0;
+    background: #050b18;
+    border: 1px solid #1b2c47;
+    border-radius: 8px;
+    color: white;
+    font-size: 14px;
+    padding: 9px 12px;
+}
+
+.limite_alcanzado{
+    padding: 8px 12px;
+    border: 1px solid rgba(240,180,41,0.35);
+    border-radius: 8px;
+    background: rgba(240,180,41,0.08);
+    color: #f0b429;
+    font-size: 13px;
+}
+
+p.limite_alcanzado{
+    margin-bottom: 16px;
+}
+
+.torneo_titulo{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin: 6px 0 14px;
+}
+
+.torneo_titulo h3{
+    color: white;
+    font-size: 20px;
+}
+
+/* reabrir y eliminar torneo, juntos a la derecha */
+.torneo_acciones{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
+.boton_peligro.boton_chico{
+    padding: 8px 14px;
+    font-size: 13px;
+}
+
+.estado{
+    display: inline-block;
+    margin-left: 6px;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: normal;
+    vertical-align: middle;
+}
+
+.estado_prog{
+    color: #1d8fff;
+    background: rgba(29,143,255,0.10);
+    border: 1px solid rgba(29,143,255,0.30);
+}
+
+.estado_fin{
+    color: #7ee08a;
+    background: rgba(126,224,138,0.08);
+    border: 1px solid rgba(126,224,138,0.25);
+}
+
+.torneo_grilla,
+.plan_liga_grilla{
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    gap: 18px;
+    align-items: start;
+}
+
+.bloque_torneo{
+    padding: 18px;
+    background: #050b18;
+    border: 1px solid #111827;
+    border-radius: 14px;
+}
+
+.bloque_torneo h4{
+    color: white;
+    font-size: 15px;
+    margin-bottom: 12px;
+}
+
+.bloque_torneo h4:not(:first-child){
+    margin-top: 20px;
+}
+
+.bloque_torneo h4 small{
+    color: #6f7a8c;
+    font-weight: normal;
+}
+
+/* tabla de posiciones */
+.tabla_desplazable{
+    overflow-x: auto;
+}
+
+.tabla_posiciones{
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+.tabla_posiciones th{
+    padding: 8px 6px;
+    border-bottom: 1px solid #1b2c47;
+    color: #8b95a7;
+    font-size: 12px;
+    text-align: center;
+}
+
+.tabla_posiciones td{
+    padding: 9px 6px;
+    border-bottom: 1px solid #0d1524;
+    color: #dfe1e6;
+    text-align: center;
+}
+
+.tabla_posiciones tbody tr:hover td{
+    background: #07152f;
+}
+
+.tabla_posiciones .columna_equipo{
+    text-align: left;
+    white-space: nowrap;
+}
+
+.columna_puntos{
+    color: white;
+    font-weight: bold;
+}
+
+.mini_escudo{
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    vertical-align: middle;
+    margin-right: 6px;
+}
+
+/* estadisticas basicas y limites */
+.estadisticas_basicas{
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.estadisticas_basicas div{
+    padding: 10px 12px;
+    border-radius: 10px;
+    background: #07152f;
+}
+
+.estadisticas_basicas dt{
+    color: #8b95a7;
+    font-size: 12px;
+}
+
+.estadisticas_basicas dd{
+    margin-top: 4px;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.estadisticas_basicas dd small{
+    display: block;
+    color: #6f7a8c;
+    font-size: 11px;
+    font-weight: normal;
+}
+
+/* calendario y resultados */
+.lista_partidos{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.partido{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 12px;
+    border: 1px solid #1b2c47;
+    border-radius: 10px;
+    background: #07152f;
+}
+
+.partido_jugado{
+    border-left: 3px solid #7ee08a;
+}
+
+.partido_fecha{
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    color: #8b95a7;
+    font-size: 12px;
+}
+
+.partido_fecha strong{
+    color: #bfc7d5;
+}
+
+.partido_equipos{
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 10px;
+    color: white;
+    font-size: 14px;
+}
+
+.partido_equipos > span:last-child{
+    text-align: right;
+}
+
+.partido_vs{
+    color: #6f7a8c;
+    font-size: 12px;
+}
+
+.partido_marcador{
+    padding: 3px 10px;
+    border-radius: 6px;
+    background: #050b18;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.partido_acciones{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.form_resultado{
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #8b95a7;
+}
+
+.form_resultado input{
+    width: 58px;
+    padding: 6px 8px;
+    border: 1px solid #1b2c47;
+    border-radius: 6px;
+    background: #050b18;
+    color: white;
+    font-size: 14px;
+    text-align: center;
+}
+
+.nuevo_partido,
+.corregir_resultado{
+    margin-top: 10px;
+}
+
+.nuevo_partido summary,
+.corregir_resultado summary{
+    color: #1d8fff;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.corregir_resultado summary{
+    font-size: 12px;
+}
+
+.nuevo_partido form,
+.corregir_resultado form{
+    margin-top: 10px;
+}
+
+
+/* plan de la liga */
+
+.funciones_plan{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.funciones_plan li{
+    display: grid;
+    grid-template-columns: 18px 1fr auto;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+}
+
+.funciones_plan small{
+    color: #6f7a8c;
+    font-size: 11px;
+    white-space: nowrap;
+}
+
+.funcion_incluida .funcion_nombre{
+    color: #dfe1e6;
+}
+
+.funcion_bloqueada .funcion_nombre{
+    color: #6f7a8c;
+}
+
+/* tilde (incluida) o candado simple (bloqueada) */
+.funcion_icono{
+    position: relative;
+    width: 14px;
+    height: 14px;
+}
+
+.funcion_incluida .funcion_icono::before{
+    content: "";
+    position: absolute;
+    left: 4px;
+    top: 0;
+    width: 5px;
+    height: 10px;
+    border: solid #7ee08a;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.funcion_bloqueada .funcion_icono::before{
+    content: "";
+    position: absolute;
+    left: 2px;
+    bottom: 0;
+    width: 10px;
+    height: 8px;
+    border-radius: 2px;
+    background: #4c586b;
+}
+
+.funcion_bloqueada .funcion_icono::after{
+    content: "";
+    position: absolute;
+    left: 4px;
+    top: 0;
+    width: 6px;
+    height: 6px;
+    border: 2px solid #4c586b;
+    border-bottom: none;
+    border-radius: 4px 4px 0 0;
+}
+
+
+/* eliminar liga */
+
+.zona_peligro{
+    margin-top: 18px;
+    border-color: rgba(229,57,53,0.45);
+    background: rgba(229,57,53,0.05);
+}
+
+.zona_peligro h4{
+    color: #ff8a80;
+}
+
+.zona_peligro p{
+    color: #bfc7d5;
+    font-size: 13px;
+    line-height: 1.5;
+    margin-bottom: 12px;
+}
+
+.form_eliminar_liga label{
+    display: block;
+    color: #bfc7d5;
+    font-size: 13px;
+    margin-bottom: 8px;
+}
+
+.form_eliminar_liga .form_linea{
+    margin-bottom: 0;
+}
+
+.boton_peligro{
+    padding: 9px 16px;
+    border: 1px solid #e53935;
+    border-radius: 8px;
+    background: #e53935;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.boton_peligro:disabled{
+    border-color: #4c586b;
+    background: transparent;
+    color: #6f7a8c;
+    cursor: not-allowed;
+}
+
+/* eliminar equipo (ventana del equipo y equipos sin liga) */
+
+/* "Editar club" y "Eliminar equipo" juntos en la cabecera de la ventana */
+.modal_acciones{
+    display: flex;
+    align-self: flex-start;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
+.modal_acciones .boton_editar[hidden]{
+    display: none;
+}
+
+.boton_eliminar_equipo{
+    border-color: rgba(229,57,53,0.5);
+    color: #ff8a80;
+}
+
+.boton_eliminar_equipo:hover,
+.boton_eliminar_equipo[aria-expanded="true"]{
+    border-color: #e53935;
+    background: rgba(229,57,53,0.1);
+}
+
+.eliminar_equipo{
+    margin: 12px 26px 0;
+}
+
+.eliminar_suelto summary{
+    color: #ff8a80;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.eliminar_equipo form{
+    padding: 14px;
+    border: 1px solid rgba(229,57,53,0.45);
+    border-radius: 10px;
+    background: rgba(229,57,53,0.05);
+}
+
+.eliminar_equipo form p{
+    color: #bfc7d5;
+    font-size: 13px;
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
+
+.eliminar_suelto{
+    flex-basis: 100%;
+}
+
+.eliminar_suelto form{
+    margin: 8px 0 0;
+}
+
+/* planes contratados (organizador / admin): boton con notificacion y panel desplegable */
+.cabecera_botones{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.contrataciones_menu{
+    position: relative;
+}
+
+.boton_contrataciones{
+    position: relative;
+    padding: 11px 16px;
+    border: 1px solid #1b2c47;
+    border-radius: 10px;
+    background: #050b18;
+    color: #dfe1e6;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.boton_contrataciones:hover,
+.boton_contrataciones[aria-expanded="true"]{
+    border-color: #1d8fff;
+    color: white;
+}
+
+.notificacion{
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    min-width: 21px;
+    height: 21px;
+    padding: 0 6px;
+    border: 2px solid #020611;
+    border-radius: 999px;
+    background: #ff4d5e;
+    color: white;
+    font-size: 11px;
+    line-height: 17px;
+    text-align: center;
+    animation: latido 2s ease-in-out infinite;
+}
+
+@keyframes latido{
+    0%, 100%{ transform: scale(1); }
+    50%{ transform: scale(1.15); }
+}
+
+@media (prefers-reduced-motion: reduce){
+    .notificacion{ animation: none; }
+}
+
+.panel_contrataciones{
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    z-index: 30;
+    width: min(380px, calc(100vw - 32px));
+    max-height: 70vh;
+    overflow-y: auto;
+    border: 1px solid #1b2c47;
+    border-radius: 14px;
+    background: #050b18;
+    box-shadow: 0 18px 40px rgba(0,0,0,0.55);
+    text-align: left;
+}
+
+.panel_contrataciones_cabeza{
+    position: sticky;
+    top: 0;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 14px 16px;
+    border-bottom: 1px solid #1b2c47;
+    background: #050b18;
+    color: white;
+}
+
+.panel_contrataciones_cabeza small{
+    color: #8b95a7;
+    font-size: 12px;
+}
+
+.panel_contrataciones_vacio{
+    padding: 18px 16px;
+    color: #8b95a7;
+    font-size: 13px;
+}
+
+.lista_contrataciones{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.contratacion{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+    padding: 14px 16px;
+    border-bottom: 1px solid #0d1524;
+    color: #dfe1e6;
+    font-size: 13px;
+}
+
+.contratacion:last-child{
+    border-bottom: none;
+}
+
+.contratacion_pendiente{
+    border-left: 3px solid #ff4d5e;
+    background: rgba(255,77,94,0.05);
+}
+
+.contratacion_fila{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 4px;
+}
+
+.contratacion_fila small{
+    color: #8b95a7;
+    font-size: 11px;
+}
+
+.contratacion strong{
+    color: white;
+    font-size: 14px;
+}
+
+.contratacion .crear_desde_contratacion{
+    margin-top: 8px;
+}
+
+.contratacion_lista{
+    margin-top: 6px;
+    color: #7ee08a;
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+a.contratacion_lista:hover{
+    text-decoration: underline;
+}
+
+.panel_contrataciones_historial{
+    position: sticky;
+    bottom: 0;
+    width: 100%;
+    padding: 12px 16px;
+    border: none;
+    border-top: 1px solid #1b2c47;
+    background: #07152f;
+    color: #8fc5ff;
+    font: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    text-align: left;
+    cursor: pointer;
+}
+
+.panel_contrataciones_historial:hover{
+    background: #0b1f42;
+    color: white;
+}
+
+.panel_contrataciones_historial small{
+    color: #6f7a8c;
+}
+
+/* ventana del historial */
+.modal_historial{
+    width: min(620px, calc(100vw - 32px));
+}
+
+.historial_cuerpo{
+    padding: 0 22px 22px;
+}
+
+.historial_buscador{
+    margin: 0 0 12px;
+}
+
+.lista_historial{
+    max-height: 60vh;
+    overflow-y: auto;
+    border: 1px solid #1b2c47;
+    border-radius: 12px;
+}
+
+.contratacion_lista_eliminada{
+    color: #8b95a7;
+}
+
+.aviso_contratacion{
+    margin-bottom: 14px;
+    padding: 10px 12px;
+    border: 1px solid rgba(29,143,255,0.4);
+    border-radius: 10px;
+    background: rgba(29,143,255,0.08);
+    color: #cfe4ff;
+    font-size: 13px;
+}
+
+@media (max-width: 700px){
+    .cabecera_botones{
+        position: relative;
+        flex-wrap: wrap;
+    }
+
+    .contrataciones_menu{
+        position: static;
+    }
+
+    .cabecera_botones > *{
+        flex: 1;
+    }
+
+    .boton_contrataciones{
+        width: 100%;
+    }
+
+    .panel_contrataciones{
+        left: 0;
+        width: auto;
+    }
+}
+
+.contratacion_extra{
+    display: block;
+    margin-top: 3px;
+    color: #6f7a8c;
+    font-size: 11px;
+}
+
+/* equipos que quedaron sin liga */
+.equipos_sin_liga{
+    margin-top: 30px;
+    padding: 18px;
+    border: 1px dashed rgba(240,180,41,0.4);
+    border-radius: 14px;
+}
+
+.equipos_sin_liga h3{
+    color: white;
+    font-size: 17px;
+}
+
+.equipos_sin_liga h3 small{
+    color: #f0b429;
+}
+
+.lista_sin_liga{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.lista_sin_liga li{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 10px 12px;
+    border-radius: 10px;
+    background: #07152f;
+}
+
+.sin_liga_nombre{
+    flex: 1;
+    min-width: 160px;
+    display: flex;
+    flex-direction: column;
+}
+
+.sin_liga_nombre strong{
+    color: white;
+    font-size: 14px;
+}
+
+.sin_liga_nombre small{
+    color: #8b95a7;
+    font-size: 12px;
+}
+
+.form_mover{
+    display: flex;
+    gap: 8px;
+}
+
+.form_mover select{
+    min-width: 0;
+    padding: 7px 10px;
+    border: 1px solid #1b2c47;
+    border-radius: 8px;
+    background: #050b18;
+    color: white;
+    font-size: 13px;
+}
+
+
+/* formularios */
+
+.campo_ancho_grilla{
+    grid-column: 1 / -1;
+}
+
+.campo_etiqueta{
+    color: #bfc7d5;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.campo_fijo{
+    padding: 10px 12px;
+    border: 1px dashed #1b2c47;
+    border-radius: 8px;
+    color: white;
+    font-size: 14px;
+}
+
+.campo_fijo small{
+    color: #6f7a8c;
+}
+
+.modal_liga{
+    width: min(640px, calc(100% - 32px));
+}
+
+.form_club .campo_ayuda{
+    display: block;
+    margin-bottom: 14px;
+}
+
+
+/* responsive */
+
+@media (max-width: 900px){
+    .torneo_grilla,
+    .plan_liga_grilla{
+        grid-template-columns: 1fr;
+    }
+
+    .liga_medidores{
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 600px){
+    .liga_cabecera{
+        padding: 18px 16px 0;
+    }
+
+    .liga_titulo{
+        flex-direction: column;
+    }
+
+    .liga_titulo h1{
+        font-size: 22px;
+    }
+
+    .form_linea,
+    .partido_acciones{
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .estadisticas_basicas{
+        grid-template-columns: 1fr;
+    }
+}

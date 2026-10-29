@@ -1,0 +1,7 @@
+# el codigo no se abre desde el navegador, todo pasa por index.php
+Require all denied
+
+# menos cerrar sesion, que se abre directo desde el menu
+<Files "salir.php">
+    Require all granted
+</Files>

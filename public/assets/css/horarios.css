@@ -1,0 +1,116 @@
+/* horarios usa las mismas tablas que resultados (resultados.css). aca va solo lo propio */
+
+.horarios-barra {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+}
+
+.horarios-filtro select {
+    min-height: 40px;
+    padding: 0 12px;
+    border: 1px solid #26334a;
+    border-radius: 4px;
+    background: #050b18;
+    color: #f3f5f8;
+    font: inherit;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.horarios-filtro select:focus {
+    border-color: #1d8fff;
+    outline: none;
+}
+
+.horarios-tabla {
+    min-width: 900px;
+}
+
+/* en el formulario de partido van dos columnas iguales (en resultados la segunda es para los goles) */
+.horario-formulario-equipos {
+    grid-template-columns: 1fr 1fr;
+}
+
+.resultado-formulario label small {
+    color: #6f7b90;
+}
+
+/* la columna del "vs" va centrada (en resultados la 4 es el marcador) */
+.horarios-tabla th:nth-child(4),
+.horarios-tabla td:nth-child(4) {
+    text-align: left;
+}
+
+.horarios-tabla th:nth-child(5),
+.horarios-tabla td:nth-child(5) {
+    text-align: center;
+}
+
+.horario-vs .marcador-resultado {
+    min-width: 46px;
+    color: #8ec5ff;
+    font-size: 12px;
+    text-align: center;
+}
+
+.horario-fecha {
+    display: flex;
+    width: 44px;
+    min-height: 48px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #263a56;
+    border-radius: 4px;
+    background: #0b1728;
+}
+
+.horario-fecha strong {
+    color: #fff;
+    font-size: 17px;
+    line-height: 1.1;
+}
+
+.horario-fecha small {
+    margin-top: 3px;
+    color: #8b9bb3;
+    font-size: 9px;
+}
+
+.horario-hora {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+}
+
+.horario-pendiente {
+    border-color: #6b2b2b;
+    background: #241010;
+    color: #f0a0a0;
+}
+
+.horario-se-borra {
+    display: block;
+    margin-top: 5px;
+    color: #78849a;
+    font-size: 10px;
+    white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+    .horarios-barra .resultados-buscador {
+        flex-basis: 100%;
+    }
+
+    .horarios-filtro {
+        flex: 1;
+    }
+
+    .horarios-filtro select {
+        width: 100%;
+    }
+}

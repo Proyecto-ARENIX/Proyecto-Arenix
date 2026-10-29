@@ -1,0 +1,44 @@
+# configuracion de apache para ARENIX
+
+# la portada es index.php y no se listan las carpetas
+DirectoryIndex index.php
+Options -Indexes
+
+AddDefaultCharset UTF-8
+
+# si piden una pagina que no existe, index.php muestra el inicio
+ErrorDocument 404 /index.php
+
+# archivos que nunca se descargan (la base de datos, notas, respaldos)
+<FilesMatch "\.(sql|md|log|ini|bak|env)$">
+    Require all denied
+</FilesMatch>
+
+# archivos ocultos (.htaccess, .vscode, .git)
+<FilesMatch "^\.">
+    Require all denied
+</FilesMatch>
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule (^|/)\.(vscode|git)(/|$) - [F,L]
+</IfModule>
+
+<IfModule mod_headers.c>
+    # el navegador no adivina el tipo de archivo
+    Header always set X-Content-Type-Options "nosniff"
+    # la pagina no se puede meter dentro de otra (iframe)
+    Header always set X-Frame-Options "SAMEORIGIN"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# cache del navegador para imagenes, estilos y videos
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType image/png "access plus 7 days"
+    ExpiresByType image/jpeg "access plus 7 days"
+    ExpiresByType image/webp "access plus 7 days"
+    ExpiresByType image/gif "access plus 7 days"
+    ExpiresByType text/css "access plus 1 day"
+    ExpiresByType video/mp4 "access plus 7 days"
+</IfModule>

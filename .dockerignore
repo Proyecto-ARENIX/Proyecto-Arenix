@@ -1,0 +1,13 @@
+.git
+.gitignore
+.vscode
+.env
+.env.example
+.dockerignore
+Dockerfile
+docker-compose.yml
+database
+*.log
+*.md
+*.bak
+app/models/conexion-demo.php

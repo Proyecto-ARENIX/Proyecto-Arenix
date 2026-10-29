@@ -1,0 +1,158 @@
+.reglamentos-pagina {
+    width: min(1180px, 100%);
+    margin: 0 auto;
+    padding: 42px 24px 60px;
+    flex: 1;
+    color: #dfe1e6;
+}
+
+.reglamentos-encabezado {
+    padding: 25px 26px 27px;
+    border: 1px solid #1c2740;
+    border-left: 3px solid #1d8fff;
+    border-radius: 6px;
+    background: linear-gradient(110deg, #0a1729, #050b18 72%);
+}
+
+.reglamentos-antetitulo {
+    margin-bottom: 8px;
+    color: #1d8fff;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.reglamentos-encabezado h1 {
+    color: #fff;
+    font-size: 30px;
+}
+
+.reglamentos-encabezado p:not(.reglamentos-antetitulo) {
+    margin-top: 8px;
+    color: #8b93a7;
+    font-size: 14px;
+}
+
+/* accesos rapidos a cada deporte */
+.reglamentos-indice {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 20px 0 24px;
+}
+
+.reglamentos-indice a {
+    padding: 7px 11px;
+    border: 1px solid #26334a;
+    border-radius: 4px;
+    background: #050b18;
+    color: #bdc9da;
+    font-size: 12px;
+    text-decoration: none;
+}
+
+.reglamentos-indice a:hover,
+.reglamentos-indice a:focus-visible {
+    border-color: #1d8fff;
+    color: #fff;
+}
+
+.reglamento {
+    padding: 25px 0 30px;
+    border-top: 1px solid #1c2740;
+    scroll-margin-top: 90px;
+}
+
+.reglamento-cabecera {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 8px 16px;
+    margin-bottom: 14px;
+}
+
+.reglamento-cabecera h2 {
+    padding-left: 11px;
+    border-left: 2px solid #1d8fff;
+    color: #fff;
+    font-size: 19px;
+}
+
+.reglamento-cabecera a,
+.reglamento-cabecera span {
+    color: #77839a;
+    font-size: 12px;
+}
+
+.reglamento-cabecera a:hover {
+    color: #1d8fff;
+}
+
+.reglamento-datos {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    margin-bottom: 14px;
+}
+
+.reglamento-datos div {
+    padding: 12px 14px;
+    border: 1px solid #233149;
+    border-radius: 6px;
+    background: #050b18;
+}
+
+.reglamento-datos dt {
+    margin-bottom: 4px;
+    color: #77839a;
+    font-size: 11px;
+    text-transform: uppercase;
+}
+
+.reglamento-datos dd {
+    color: #f3f5f8;
+    font-size: 14px;
+}
+
+.reglamento-reglas {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-left: 18px;
+    color: #dfe1e6;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.reglamento-tabla {
+    margin-top: 14px;
+    padding: 11px 14px;
+    border: 1px solid #28466c;
+    border-radius: 4px;
+    background: #0b1d33;
+    color: #bdc9da;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.reglamento-tabla strong {
+    color: #fff;
+}
+
+@media (max-width: 640px) {
+    .reglamentos-pagina {
+        padding: 28px 16px 42px;
+    }
+
+    .reglamentos-encabezado {
+        padding: 21px 18px;
+    }
+
+    .reglamentos-encabezado h1 {
+        font-size: 25px;
+    }
+
+    .reglamento-datos {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,55 @@
+/* eventos usa las mismas tablas que resultados y horarios (resultados.css y horarios.css). aca va solo lo propio */
+
+.eventos-tabla {
+    min-width: 960px;
+}
+
+/* resultados centra la columna 4, aca es la modalidad */
+.eventos-tabla th:nth-child(4),
+.eventos-tabla td:nth-child(4) {
+    text-align: left;
+}
+
+.evento-acciones {
+    display: flex;
+    gap: 6px;
+    white-space: nowrap;
+}
+
+.evento-editar:hover,
+.evento-editar:focus-visible {
+    border-color: #1d8fff;
+    color: #fff;
+}
+
+/* colores de cada estado */
+.evento-estado-confirmado {
+    border-color: #2c5b49;
+    background: #10251d;
+    color: #8ed7b2;
+}
+
+.evento-estado-abierto {
+    border-color: #28466c;
+    background: #0b1d33;
+    color: #8ec5ff;
+}
+
+.evento-estado-limitado {
+    border-color: #6b4a26;
+    background: #281d11;
+    color: #f0bd78;
+}
+
+.evento-estado-cerrado,
+.evento-estado-finalizado {
+    border-color: #3a4352;
+    background: #111823;
+    color: #9aa6ba;
+}
+
+.evento-estado-suspendido {
+    border-color: #6b2b2b;
+    background: #241010;
+    color: #f0a0a0;
+}

@@ -1,0 +1,591 @@
+/* pagina de inicio */
+
+.inicio {
+    width: 100%;
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 28px 24px 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+}
+
+/* bienvenida */
+.bienvenida {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: center;
+    gap: 20px;
+
+    border: 1px solid #1b2740;
+    border-radius: 12px;
+    padding: 44px 40px;
+
+    background:
+        radial-gradient(ellipse at 80% 10%, rgba(29, 143, 255, 0.12), transparent 60%),
+        linear-gradient(180deg, #0a1322, #070e1b);
+}
+
+.bienvenida-hola {
+    color: #8c96a8;
+    font-size: 17px;
+    margin-bottom: 6px;
+}
+
+.bienvenida-titulo {
+    color: #e9edf5;
+    font-size: 44px;
+    line-height: 1.05;
+    letter-spacing: 0.5px;
+}
+
+.bienvenida-titulo span {
+    color: #1d8fff;
+}
+
+.bienvenida-bajada {
+    color: #aab2c2;
+    font-size: 16px;
+    margin: 16px 0 24px;
+    max-width: 380px;
+}
+
+.boton-principal {
+    display: inline-block;
+    background: #1a4fd0;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 12px 20px;
+    border-radius: 8px;
+    transition: background .2s;
+}
+
+.boton-principal:hover {
+    background: #2563eb;
+}
+
+.bienvenida-imagen {
+    display: flex;
+    justify-content: center;
+}
+
+.bienvenida-imagen img {
+    width: 280px;
+    max-width: 100%;
+    filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.45));
+}
+
+/* tarjetas */
+.panel {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.ficha {
+    background: #070e1b;
+    border: 1px solid #1b2740;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.ficha-cabeza {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 12px;
+    margin-bottom: 12px;
+    border-bottom: 1px solid #1b2740;
+}
+
+.ficha-cabeza h3 {
+    color: #dfe4ee;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: .6px;
+}
+
+.ficha-cabeza a {
+    color: #1d8fff;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.ficha-cabeza a:hover {
+    text-decoration: underline;
+}
+
+.ficha-pie {
+    margin-top: auto;
+    padding-top: 14px;
+    text-align: center;
+    color: #1d8fff;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.ficha-pie:hover {
+    text-decoration: underline;
+}
+
+/* escudos */
+.escudo {
+    width: 30px;
+    height: 30px;
+    flex-shrink: 0;
+    object-fit: contain;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    vertical-align: middle;
+}
+
+.escudo.mini {
+    width: 22px;
+    height: 22px;
+    font-size: 10px;
+}
+
+/* si falta el logo, queda el emoji dentro de un recuadro */
+span.escudo {
+    border-radius: 6px;
+    background: #0e1a2e;
+    border: 1px solid #33507e;
+}
+
+/* enfrentamientos */
+.vs-fila {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 0;
+    border-bottom: 1px solid #111c30;
+}
+
+.vs-fila:last-child {
+    border-bottom: none;
+}
+
+.equipo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #dfe4ee;
+    font-size: 14px;
+}
+
+.equipo-der {
+    justify-content: flex-end;
+    text-align: right;
+}
+
+.vs-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1px;
+}
+
+.vs-info small {
+    color: #7c8699;
+    font-size: 11px;
+}
+
+.vs-info strong {
+    color: #e9edf5;
+    font-size: 15px;
+    margin: 2px 0;
+}
+
+/* resultados */
+.res-fila {
+    display: grid;
+    grid-template-columns: 34px 1fr auto 1fr;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 0;
+    border-bottom: 1px solid #111c30;
+}
+
+.fecha {
+    color: #7c8699;
+    font-size: 11px;
+    text-align: center;
+    line-height: 1.2;
+}
+
+.res-eq {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    color: #dfe4ee;
+    font-size: 13px;
+}
+
+.res-eq.der {
+    justify-content: flex-end;
+    text-align: right;
+}
+
+.marcador {
+    color: #fff;
+    font-weight: bold;
+    font-size: 15px;
+    background: #0d1a2f;
+    border: 1px solid #1c2b47;
+    border-radius: 6px;
+    padding: 3px 10px;
+}
+
+/* horarios */
+.hora-fila {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 12px 0;
+    border-bottom: 1px solid #111c30;
+}
+
+.hora-fila .cuando {
+    color: #7c8699;
+    font-size: 12px;
+}
+
+.hora-fila .par {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    color: #dfe4ee;
+    font-size: 13px;
+    flex-wrap: wrap;
+}
+
+.hora-fila .par em {
+    color: #7c8699;
+    font-style: normal;
+}
+
+/* eventos */
+.evento {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.evento-imagen {
+    height: 130px;
+    border-radius: 8px;
+    background:
+        radial-gradient(ellipse at 50% 0%, rgba(29, 143, 255, 0.14), transparent 60%),
+        linear-gradient(180deg, #101a2c, #0a1220);
+    border: 1px solid #1b2740;
+}
+
+.evento-imagen {
+    overflow: hidden;
+}
+
+.evento-imagen img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.evento-info h4 {
+    color: #e9edf5;
+    font-size: 16px;
+    margin-bottom: 6px;
+}
+
+.evento-datos {
+    color: #1d8fff;
+    font-size: 13px;
+    margin-bottom: 8px;
+}
+
+.evento-info p {
+    color: #aab2c2;
+    font-size: 13px;
+}
+
+/* noticias */
+.noticia {
+    display: flex;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid #111c30;
+    text-decoration: none;
+}
+
+.noticia:last-of-type {
+    border-bottom: none;
+}
+
+.noticia-imagen {
+    width: 72px;
+    height: 72px;
+    flex-shrink: 0;
+    border-radius: 6px;
+    background: linear-gradient(135deg, #23364f, #0d1626);
+    border: 1px solid #1b2740;
+}
+
+.noticia-imagen img {
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    object-fit: contain;
+}
+
+.noticia-info h4 {
+    color: #e9edf5;
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+.noticia-info p {
+    color: #aab2c2;
+    font-size: 12px;
+    margin-bottom: 4px;
+}
+
+.noticia-info small {
+    color: #7c8699;
+    font-size: 11px;
+}
+
+/* ranking */
+.ranking {
+    list-style: none;
+}
+
+.ranking li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 11px 0;
+    border-bottom: 1px solid #111c30;
+    color: #dfe4ee;
+    font-size: 14px;
+}
+
+.ranking .nombre {
+    flex: 1;
+    min-width: 0;
+}
+
+.ranking .nombre small {
+    display: block;
+    overflow: hidden;
+    color: #7c8699;
+    font-size: 11px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.ranking .nota {
+    color: #1d8fff;
+    font-weight: bold;
+    font-size: 13px;
+    white-space: nowrap;
+}
+
+/* cuadro sin datos todavia */
+.ficha-vacia {
+    padding: 14px 0;
+    color: #7c8699;
+    font-size: 13px;
+}
+
+/* boton editar de cada cuadro (admin y organizador) */
+.ficha-acciones {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.ficha-editar {
+    padding: 3px 9px;
+    border: 1px solid #2b3a55;
+    border-radius: 4px;
+    background: transparent;
+    color: #9aa6ba;
+    font-size: 11px;
+    cursor: pointer;
+}
+
+.ficha-editar:hover,
+.ficha-editar:focus-visible {
+    border-color: #1d8fff;
+    color: #fff;
+}
+
+/* en la bienvenida va arriba a la derecha */
+.bienvenida > .ficha-editar {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+}
+
+.inicio-mensaje {
+    padding: 11px 14px;
+    border: 1px solid;
+    border-radius: 6px;
+    font-size: 13px;
+}
+
+.inicio-exito {
+    border-color: #1f5b3a;
+    background: #0c1f16;
+    color: #8fe0b0;
+}
+
+.inicio-error {
+    border-color: #6b2b2b;
+    background: #241010;
+    color: #f0a0a0;
+}
+
+.inicio-formulario {
+    width: min(560px, calc(100% - 32px));
+    max-height: calc(100vh - 40px);
+    margin: auto;
+    padding: 0;
+    border: 1px solid #202c40;
+    border-radius: 8px;
+    background: #070e1b;
+    color: #dfe1e6;
+}
+
+.inicio-formulario::backdrop {
+    background: rgba(2, 6, 14, .75);
+}
+
+.inicio-formulario form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 22px;
+}
+
+.inicio-formulario h3 {
+    color: #fff;
+    font-size: 18px;
+}
+
+.inicio-formulario-ayuda {
+    color: #8c96a8;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.inicio-formulario label {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    color: #a2adbd;
+    font-size: 12px;
+}
+
+.inicio-formulario input,
+.inicio-formulario select,
+.inicio-formulario textarea {
+    padding: 9px 10px;
+    border: 1px solid #293850;
+    border-radius: 4px;
+    background: #050b18;
+    color: #f3f5f8;
+    font: inherit;
+    font-size: 14px;
+}
+
+.inicio-formulario textarea {
+    resize: vertical;
+}
+
+.inicio-formulario input:focus,
+.inicio-formulario select:focus,
+.inicio-formulario textarea:focus {
+    border-color: #1d8fff;
+    outline: none;
+}
+
+.inicio-foto-actual {
+    width: 100%;
+    max-height: 140px;
+    border: 1px solid #1b2740;
+    border-radius: 6px;
+    object-fit: cover;
+}
+
+.inicio-formulario .inicio-casilla {
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    color: #c8d2e0;
+}
+
+.inicio-formulario-botones {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.inicio-cancelar {
+    padding: 10px 16px;
+    border: 1px solid #293850;
+    border-radius: 8px;
+    background: transparent;
+    color: #aeb8c8;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.inicio-cancelar:hover {
+    color: #fff;
+}
+
+/* responsive */
+@media (max-width: 1024px) {
+    .panel {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 820px) {
+    .bienvenida {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 36px 24px;
+    }
+
+    .bienvenida-bajada {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .bienvenida-imagen {
+        order: -1;
+    }
+
+    .bienvenida-imagen img {
+        width: 200px;
+    }
+
+    .panel {
+        grid-template-columns: 1fr;
+    }
+
+    .bienvenida-titulo {
+        font-size: 42px;
+    }
+}

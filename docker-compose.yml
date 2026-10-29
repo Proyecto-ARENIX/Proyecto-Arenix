@@ -1,0 +1,71 @@
+services:
+  db:
+    image: mariadb:10.11
+    container_name: arenix-db
+    restart: unless-stopped
+    environment:
+      MARIADB_ROOT_PASSWORD: ${DB_ROOT_PASS:?falta DB_ROOT_PASS en .env}
+      MARIADB_DATABASE: ${DB_NAME:-arenix}
+      MARIADB_USER: ${DB_USER:-arenix}
+      MARIADB_PASSWORD: ${DB_PASS:?falta DB_PASS en .env}
+      TZ: ${TZ:-America/Montevideo}
+    # la primera vez carga los datos de arenix.sql (despues ya no lo toca)
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./database/arenix.sql:/docker-entrypoint-initdb.d/arenix.sql:ro
+    command: >
+      --innodb-buffer-pool-size=256M
+      --max-connections=50
+      --character-set-server=utf8mb4
+      --collation-server=utf8mb4_general_ci
+      --skip-name-resolve
+    networks:
+      - red_arenix
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    mem_limit: 512m
+    cpus: 1.0
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  web:
+    build: .
+    image: arenix-web
+    container_name: arenix-web
+    restart: unless-stopped
+    ports:
+      - "${PUERTO_WEB:-80}:80"
+    environment:
+      DB_HOST: db
+      DB_NAME: ${DB_NAME:-arenix}
+      DB_USER: ${DB_USER:-arenix}
+      DB_PASS: ${DB_PASS}
+      TZ: ${TZ:-America/Montevideo}
+    # las fotos que suben los usuarios no se pierden al actualizar la imagen
+    volumes:
+      - uploads:/var/www/html/public/assets/uploads
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - red_arenix
+    mem_limit: 512m
+    cpus: 1.0
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+volumes:
+  db_data:
+  uploads:
+
+networks:
+  red_arenix:
